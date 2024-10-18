@@ -1,0 +1,313 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Maxim\\source\\repos\\NextGen\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\controllers\\actualitecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\controllers\\actualitecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\interfaces\\iactualitesrv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\interfaces\\iactualitesrv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E4B331BE-357E-4F73-860D-9B3F753B1560}|NextGen.Back\\NextGen.Back.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.back\\services\\actualitesrv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E4B331BE-357E-4F73-860D-9B3F753B1560}|NextGen.Back\\NextGen.Back.csproj|solutionrelative:nextgen.back\\services\\actualitesrv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\views\\actualite\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\views\\actualite\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\nextgendbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\nextgendbhelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\views\\login\\connect.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\views\\login\\connect.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8977B9C-1951-4282-BA8C-53000AAC32DF}|NextGen.Model\\NextGen.Model.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.model\\actualitewithsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8977B9C-1951-4282-BA8C-53000AAC32DF}|NextGen.Model\\NextGen.Model.csproj|solutionrelative:nextgen.model\\actualitewithsource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\mapping\\actualitemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\mapping\\actualitemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8977B9C-1951-4282-BA8C-53000AAC32DF}|NextGen.Model\\NextGen.Model.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.model\\source.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D8977B9C-1951-4282-BA8C-53000AAC32DF}|NextGen.Model\\NextGen.Model.csproj|solutionrelative:nextgen.model\\source.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\interfaces\\isourcesrv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\interfaces\\isourcesrv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\mapping\\usermap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\mapping\\usermap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\mapping\\sourcemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\mapping\\sourcemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.dal\\mapping\\questionmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27965C37-4C77-4C96-941E-1AAC8BBB1E56}|NextGen.Dal\\NextGen.Dal.csproj|solutionrelative:nextgen.dal\\mapping\\questionmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|c:\\users\\maxim\\source\\repos\\nextgen\\nextgen.front\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{B28A878C-90E8-4FAC-844E-C58F3F3BBAE3}|NextGen.Front\\NextGen.Front.csproj|solutionrelative:nextgen.front\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{13b12e3e-c1b4-4539-9371-4fe9a0d523fc}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IActualiteSrv.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Interfaces\\IActualiteSrv.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\Interfaces\\IActualiteSrv.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Interfaces\\IActualiteSrv.cs",
+              "RelativeToolTip": "NextGen.Dal\\Interfaces\\IActualiteSrv.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T21:19:04.926Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ActualiteMap.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\ActualiteMap.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\Mapping\\ActualiteMap.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\ActualiteMap.cs",
+              "RelativeToolTip": "NextGen.Dal\\Mapping\\ActualiteMap.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwBYAAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:58:03.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Views\\Actualite\\Index.cshtml",
+              "RelativeDocumentMoniker": "NextGen.Front\\Views\\Actualite\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Views\\Actualite\\Index.cshtml",
+              "RelativeToolTip": "NextGen.Front\\Views\\Actualite\\Index.cshtml",
+              "ViewState": "AQIAADgAAAAAAAAAAAAAAE0AAAA5AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-17T19:21:50.543Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ActualiteSrv.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Back\\Services\\ActualiteSrv.cs",
+              "RelativeDocumentMoniker": "NextGen.Back\\Services\\ActualiteSrv.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Back\\Services\\ActualiteSrv.cs",
+              "RelativeToolTip": "NextGen.Back\\Services\\ActualiteSrv.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAApwEQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T19:57:16.615Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Connect.cshtml",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Views\\Login\\Connect.cshtml",
+              "RelativeDocumentMoniker": "NextGen.Front\\Views\\Login\\Connect.cshtml",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Views\\Login\\Connect.cshtml",
+              "RelativeToolTip": "NextGen.Front\\Views\\Login\\Connect.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-16T21:52:18.737Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ActualiteController.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Controllers\\ActualiteController.cs",
+              "RelativeDocumentMoniker": "NextGen.Front\\Controllers\\ActualiteController.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Controllers\\ActualiteController.cs",
+              "RelativeToolTip": "NextGen.Front\\Controllers\\ActualiteController.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAAlwGwAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T19:08:43.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "NextGen.Front\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "NextGen.Front\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACgAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-17T20:36:34.55Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ActualiteWithSource.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Model\\ActualiteWithSource.cs",
+              "RelativeDocumentMoniker": "NextGen.Model\\ActualiteWithSource.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Model\\ActualiteWithSource.cs",
+              "RelativeToolTip": "NextGen.Model\\ActualiteWithSource.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAADwvxIAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T19:09:14.995Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "NextGenDbHelper.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\NextGenDbHelper.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\NextGenDbHelper.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\NextGenDbHelper.cs",
+              "RelativeToolTip": "NextGen.Dal\\NextGenDbHelper.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T21:00:33.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Program.cs",
+              "RelativeDocumentMoniker": "NextGen.Front\\Program.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Program.cs",
+              "RelativeToolTip": "NextGen.Front\\Program.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAlwEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:48:01.954Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ISourceSrv.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Interfaces\\ISourceSrv.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\Interfaces\\ISourceSrv.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Interfaces\\ISourceSrv.cs",
+              "RelativeToolTip": "NextGen.Dal\\Interfaces\\ISourceSrv.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T19:19:34.905Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Source.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Model\\Source.cs",
+              "RelativeDocumentMoniker": "NextGen.Model\\Source.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Model\\Source.cs",
+              "RelativeToolTip": "NextGen.Model\\Source.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAwCQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-17T19:33:50.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserMap.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\UserMap.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\Mapping\\UserMap.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\UserMap.cs",
+              "RelativeToolTip": "NextGen.Dal\\Mapping\\UserMap.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T21:00:10.647Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SourceMap.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\SourceMap.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\Mapping\\SourceMap.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\SourceMap.cs",
+              "RelativeToolTip": "NextGen.Dal\\Mapping\\SourceMap.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABoAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:59:39.115Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "QuestionMap.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\QuestionMap.cs",
+              "RelativeDocumentMoniker": "NextGen.Dal\\Mapping\\QuestionMap.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Dal\\Mapping\\QuestionMap.cs",
+              "RelativeToolTip": "NextGen.Dal\\Mapping\\QuestionMap.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T20:59:16.428Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "NextGen.Front\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "NextGen.Front\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAABoAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T21:10:20.173Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\appsettings.json",
+              "RelativeDocumentMoniker": "NextGen.Front\\appsettings.json",
+              "ToolTip": "C:\\Users\\Maxim\\source\\repos\\NextGen\\NextGen.Front\\appsettings.json",
+              "RelativeToolTip": "NextGen.Front\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-16T20:47:09.666Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

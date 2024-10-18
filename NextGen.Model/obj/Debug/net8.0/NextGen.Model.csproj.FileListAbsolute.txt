@@ -1,0 +1,12 @@
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\bin\Debug\net8.0\NextGen.Model.deps.json
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\bin\Debug\net8.0\NextGen.Model.dll
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\bin\Debug\net8.0\NextGen.Model.pdb
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.AssemblyInfoInputs.cache
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.AssemblyInfo.cs
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.csproj.CoreCompileInputs.cache
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.sourcelink.json
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.dll
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\refint\NextGen.Model.dll
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\NextGen.Model.pdb
+C:\Users\Maxim\source\repos\NextGen\NextGen.Model\obj\Debug\net8.0\ref\NextGen.Model.dll

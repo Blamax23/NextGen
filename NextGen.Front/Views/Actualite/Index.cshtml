@@ -1,0 +1,106 @@
+﻿@using NextGen.Model;
+
+@model List<ActualiteWithSource>;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="content">
+    <h2>Actualités</h2>
+    <div class="tableau">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="add-actualite-container">
+                <button id="btnAddActualite" class="btn btn-primary btn-block" onclick="toggleForm()">Ajouter une actualité</button>
+                <form asp-action="AddActualite" method="post" enctype="multipart/form-data" class="actualite-form" id="formAddActualite" style="display: none;">
+                    <div class="title-zone">
+                        <input type="text" name="Titre" class="form-control" placeholder="Titre de l'actualité" required />
+                    </div>
+                    <div class="content-zone">
+                        <textarea name="Contenu" class="form-control" placeholder="Contenu de l'actualité" required></textarea>
+                        <input type="file" name="Sources" class="form-control" multiple />
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">Enregistrer</button>
+                </form>
+            </div>
+        }
+        @foreach (var actualite in Model)
+        {
+            <div class="actualite">
+                <div class="title-zone">
+                    <div class="head-zone">
+                        <h3>@actualite.Actualite.Titre</h3>
+                        <p>@actualite.Actualite.ReturnDateModification()</p>
+                    </div>
+                    <div class="user-zone">
+                        <p>@actualite.User.FirstName</p>
+                    </div>
+                </div>
+                <div class="content-zone">
+                    <div class="text-zone">
+                        <p>@actualite.Actualite.Contenu</p>
+                    </div>
+                    <div class="source-zone">
+                        @if(actualite.Source != null && actualite.Source.Count > 0)
+                        {
+                            foreach (var source in actualite.Source)
+                            {
+                                if (source.Type == "image")
+                                {
+                                    <img src="@Url.Content(source.Path)" alt="Achille prisonnier" />
+                                }
+                                else if (source.Type == "video")
+                                {
+                                    <video controls>
+                                        <source src="@Url.Content(source.Path)" type="video/mp4" />
+                                        Votre navigateur ne supporte pas les vidéos
+                                    </video>
+                                }
+                                else if (source.Type == "audio")
+                                {
+                                    <audio controls>
+                                        <source src="@Url.Content(source.Path)" type="audio/mpeg" />
+                                        Your browser does not support the audio tag.
+                                    </audio>
+                                }
+                                else if (source.Type == "pdf")
+                                {
+                                    <a href="@Url.Content(source.Path)" target="_blank">@source.Name</a>
+                                }
+                            }
+                        }
+                    </div>
+                </div>
+                <!--Bouton qui renvoie vers l'action de suppression de l'article-->
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a href="@Url.Action("DeleteActualite", "Actualite", new { id = actualite.Actualite.Id })" class="btn btn-danger">Supprimer</a>
+                }
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        function toggleForm() {
+            var form = document.getElementById("formAddActualite");
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+
+        function submitActualite() {
+            // Récupérer les valeurs des inputs
+            var title = document.getElementById("actualiteTitle").value;
+            var content = document.getElementById("actualiteContent").value;
+            var sources = document.getElementById("actualiteSources").files;
+
+            // Valider et envoyer les données (implémenter un appel AJAX ou soumettre le formulaire)
+            alert("Nouvelle actualité : " + title + " ajoutée !");
+        }
+    </script>
+}
