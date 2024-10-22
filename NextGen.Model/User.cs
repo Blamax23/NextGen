@@ -33,5 +33,22 @@ namespace NextGen.Model
             if (errors.Count > 0)
                 throw new Exception(string.Join(", ", errors));
         }
+
+        public string StringToRgb()
+        {
+            // Générer un hash à partir du string (par ex., le nom de l'utilisateur)
+            int hash = this.FirstName.GetHashCode();
+
+            // Utilisation du hash pour générer une couleur RGB
+            Random random = new Random(hash);
+
+            // Limiter les valeurs pour obtenir des couleurs plus douces (luminosité élevée, saturation basse)
+            int r = (random.Next(128, 256) + 255) / 2; // Rouge entre 128 et 255, plus clair
+            int g = (random.Next(128, 256) + 255) / 2; // Vert entre 128 et 255, plus clair
+            int b = (random.Next(128, 256) + 255) / 2; // Bleu entre 128 et 255, plus clair
+
+            // Retourner la couleur en format hexadécimal
+            return $"#{r:X2}{g:X2}{b:X2}";
+        }
     }
 }

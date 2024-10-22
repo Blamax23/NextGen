@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+body {
+    background-color: rgb(32, 62, 112);
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
 }
 
 @media (min-width: 768px) {
@@ -19,4 +29,28 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.navbar {
+    border-bottom: 2px solid rgb(242, 241, 3);
+    height: max-content;
+    color: white;   
+}
+
+.login-buttons {
+    display: flex;
+    height: max-content;
+    width: max-content;
+}
+
+.login-buttons ul{
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.login-buttons i{
+    font-size: 2em;
 }
