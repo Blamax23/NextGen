@@ -11,6 +11,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\NextGen.Back\NextGen.Back.csproj" />
     <ProjectReference Include="..\NextGen.Dal\NextGen.Dal.csproj" />
     <ProjectReference Include="..\NextGen.Model\NextGen.Model.csproj" />

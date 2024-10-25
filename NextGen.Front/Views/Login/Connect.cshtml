@@ -2,19 +2,41 @@
     ViewData["Title"] = "Home Page";
 }
 
-<form asp-action="Connect" method="post">
+<link rel="stylesheet" href="~/css/Login.css" />
 
-    <div>
-        <label for="Email">Email:</label>
-        <input type="text" id="Email" name="email" required />
+<div class="content container d-flex justify-content-center align-items-center shadow-lg">
+    <div class="form">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="logoutForm">
+                <h2 class="titleConnect" style="">Vous êtes déjà connecté !</h2>
+                <form asp-action="Logout" method="post" style="display: flex;justify-content: center;margin: 1em;}">
+                    <button type="submit" class="logoutBtn btn btn-danger">Se déconnecter</button>
+                </form>
+            </div>
+        }
+        else
+        {
+            <h2>Bienvenue !</h2>
+            <p>Veuillez vous connecter à votre compte</p>
+            <div class="formsLog">
+                <form asp-action="Connect" method="post">
+                    <div class="divInput emailDiv">
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Email" name="email" required />
+                    </div>
+                    <div class="divInput passwordDiv">
+                        <label for="Password">Password:</label>
+                        <input type="password" id="Password" name="password" required />
+                    </div>
+                    <div class="formsBtn">
+                        <button type="submit" class="loginBtn">Login</button>
+                    </div>
+                </form>
+            </div>
+        }
     </div>
-    <div>
-        <label for="Password">Password:</label>
-        <input type="password" id="Password" name="password" required />
-    </div>
-    <button type="submit">Login</button>
-</form>
+</div>
 
-<form asp-action="Logout" method="post">
-    <button type="submit">Logout</button>
-</form>
+
+

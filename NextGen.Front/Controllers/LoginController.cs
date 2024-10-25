@@ -26,7 +26,7 @@ namespace NextGen.Front.Controllers
         [HttpPost]
         public async Task<ActionResult> Connect(string email, string password)
         {
-            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+            var user = _context.Users.FirstOrDefault(u => u.Email.ToLower() == email.ToLower() && u.Password == password);
             if (user != null)
             {
                 var claims = new List<Claim>
@@ -60,7 +60,7 @@ namespace NextGen.Front.Controllers
         public async Task<ActionResult> Logout()
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "Connect");
+            return RedirectToAction("Connect", "Login");
         }
     }
 }

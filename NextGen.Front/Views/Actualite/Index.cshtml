@@ -1,4 +1,5 @@
 ﻿@using NextGen.Model;
+@using SixLabors.ImageSharp;
 
 @model List<ActualiteWithSource>;
 
@@ -24,15 +25,21 @@
                 </button>
                 <form asp-action="AddActualite" method="post" enctype="multipart/form-data" class="actualite-form" id="formAddActualite" style="display: none;">
                     <div class="title-zone">
-                        <input type="text" name="Titre" class="inputTitre" placeholder="Titre de l'actualité" required />
+                        <input type="text" name="Titre" id="actualiteTitle" class="inputTitre" placeholder="Titre de l'actualité" required />
                     </div>
                     <div class="content-zone">
-                        <textarea name="Contenu" class="form-control inputContenu" placeholder="Contenu de l'actualité" required></textarea>
-                        <input type="file" name="Sources" class="form-control inputSource" multiple />
+                        <textarea name="Contenu" class="form-control inputContenu" id="actualiteContent" placeholder="Contenu de l'actualité"></textarea>
+                        <div class="upload-container" id="uploadContainer">
+                            <div class="drop-area" id="dropArea">
+                                Glissez-déposez vos fichiers ici
+                            </div>
+                            <input type="file" name="Sources" id="actualiteSources" multiple style="display: none;" onchange="handleFiles(this.files)">
+                        </div>
+                        <div id="previewContainer" class="preview-container"></div>
                     </div>
                     <div class="btns-close">
                         <button type="button" class="btn btn-danger" onclick="toggleForm()">Annuler</button>
-                        <button type="button" class="btn btn-success" onclick="submitActualite()">Enregistrer</button>
+                        <button type="submit" class="btn btn-success">Enregistrer</button>
                     </div>
                 </form>
             </div>
@@ -52,44 +59,53 @@
                     </div>
                 </div>
                 <div class="content-zone">
-                    <div class="text-zone">
-                        <p>@actualite.Actualite.Contenu</p>
-                    </div>
-                    <div class="source-zone">
-                        @if(actualite.Source != null && actualite.Source.Count > 0)
-                        {
-                            foreach (var source in actualite.Source)
+                    @if (!string.IsNullOrWhiteSpace(actualite.Actualite.Contenu))
+                    {
+                        <div class="text-zone">
+                            <p>@actualite.Actualite.Contenu</p>
+                        </div>
+                    }
+                    @if (actualite.Source != null && actualite.Source.Count() > 0)
+                    {
+                        <div class="source-zone" id="actualite@(actualite.Id)">
+                            @if (actualite.Source.Count() > 1)
                             {
-                                if (source.Type == "image")
-                                {
-                                    <img src="@Url.Content(source.Path)" alt="Achille prisonnier" />
-                                }
-                                else if (source.Type == "video")
-                                {
-                                    <video controls>
-                                        <source src="@Url.Content(source.Path)" type="video/mp4" />
-                                        Votre navigateur ne supporte pas les vidéos
-                                    </video>
-                                }
-                                else if (source.Type == "audio")
-                                {
-                                    <audio controls>
-                                        <source src="@Url.Content(source.Path)" type="audio/mpeg" />
-                                        Your browser does not support the audio tag.
-                                    </audio>
-                                }
-                                else if (source.Type == "pdf")
-                                {
-                                    <a href="@Url.Content(source.Path)" target="_blank">@source.Name</a>
-                                }
+                                <div class="arrow arrow-left" onclick="changeSource(-1, @(actualite.Id))"></div>
                             }
-                        }
-                    </div>
+                            <div class="carouselSources">
+                                <div class="carouselContainer">
+                                    @for (int i = 0; i < actualite.Source.Count(); i++)
+                                    {
+                                        var source = actualite.Source.ElementAt(i);
+                                        <div class="sourceContainer" data-index="@i">
+                                            @if (source.Type == "image")
+                                            {
+                                                <img class="imgArticle" src="@Url.Content(source.Path)" alt="Image" />
+                                            }
+                                            @if (source.Type == "video")
+                                            {
+                                                <video controls class="videoArticle">
+                                                    <source src="@Url.Content(source.Path)" type="video/mp4" />
+                                                    Your browser does not support the video tag.
+                                                </video>
+                                            }
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                            @if (actualite.Source.Count() > 1)
+                            {
+                                <div class="arrow arrow-right act@(actualite.Id)" onclick="changeSource(1, @(actualite.Id))"></div>
+                            }
+                        </div>
+                    }
                 </div>
                 <!--Bouton qui renvoie vers l'action de suppression de l'article-->
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <a href="@Url.Action("DeleteActualite", "Actualite", new { id = actualite.Actualite.Id })" class="btn btn-danger">Supprimer</a>
+                    <div class="delete" style="display: flex; justify-content: right; margin: 0 1em 1em 0;">
+                        <a href="@Url.Action("DeleteActualite", "Actualite", new { id = actualite.Actualite.Id })" class="deleteBtn btn btn-danger">Supprimer</a>
+                    </div>
                 }
             </div>
         }
@@ -106,18 +122,140 @@
                 btn.style.display = "none";
             } else {
                 form.style.display = "none";
-                btn.style.display = "block";
+                btn.style.display = "flex";
             }
         }
 
-        function submitActualite() {
-            // Récupérer les valeurs des inputs
-            var title = document.getElementById("actualiteTitle").value;
-            var content = document.getElementById("actualiteContent").value;
-            var sources = document.getElementById("actualiteSources").files;
+        let currentIndex = 0;
 
-            // Valider et envoyer les données (implémenter un appel AJAX ou soumettre le formulaire)
-            alert("Nouvelle actualité : " + title + " ajoutée !");
+        function changeSource(direction, idActualite) {
+            const actualite = $("#actualite" + idActualite);
+            console.log(actualite);
+            const sources = actualite.find('.sourceContainer');
+
+            moveCarousel(direction, sources, idActualite);
         }
+
+        function moveCarousel(direction, sources, idActualite) {
+            currentIndex += direction; // Met à jour l'indice en fonction de la direction
+            // Boucle pour rester dans les limites
+            if (currentIndex < 0) {
+                currentIndex = sources.length - 1; // Retourne à la dernière source
+            } else if (currentIndex >= sources.length) {
+                currentIndex = 0; // Retourne à la première source
+            }
+
+            // Récupérer la largeur de la première source
+            const width = sources[0].clientWidth;
+            const offset = -currentIndex * width; // Calcule le déplacement du carrousel
+            const actualite = $("#actualite" + idActualite);
+            const carouselSources = actualite.find('.carouselSources');
+            console.log(carouselSources);
+            const carouselContainer = carouselSources.find('.carouselContainer');
+            console.log(carouselContainer);
+
+            if (carouselContainer.length > 0) {
+                console.log("oui");
+                // Convertir en élément DOM pour utiliser les propriétés
+                const carouselContainerDOM = carouselContainer[0];
+
+                // Applique le décalage avec une transition fluide
+                carouselContainerDOM.style.transform = `translateX(${offset}px)`;
+                carouselContainerDOM.style.transition = 'transform 0.5s ease';
+            } else {
+                console.error("carouselContainer is not found.");
+            }
+        }
+
+        const dropArea = document.getElementById('dropArea');
+        const fileInput = document.getElementById('actualiteSources');
+        const previewContainer = document.getElementById('previewContainer');
+
+        // Utilisation de DataTransfer pour maintenir une liste de fichiers persistante
+        let dt = new DataTransfer();
+
+        // Empêche le comportement par défaut lors du dragover
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+        });
+
+        // Gestion du drop des fichiers dans la zone de drop
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            const files = event.dataTransfer.files;
+            addFilesToDataTransfer(files); // Ajoute les fichiers
+        });
+
+        // Ouvre l'explorateur de fichiers lorsqu'on clique sur la zone de drop
+        dropArea.addEventListener('click', () => {
+            fileInput.click();
+        });
+
+        // Gestion de l'ajout de fichiers via l'explorateur de fichiers
+        fileInput.addEventListener('change', (event) => {
+            const files = fileInput.files;
+            addFilesToDataTransfer(files); // Ajoute les fichiers
+        });
+
+        function addFilesToDataTransfer(files) {
+            // Parcourt les nouveaux fichiers et les ajoute à DataTransfer sans réinitialiser
+            [...files].forEach(file => {
+                dt.items.add(file);
+                previewFile(file); // Ajoute un aperçu du fichier
+            });
+            updateInputFiles(); // Mets à jour l'input avec les nouveaux fichiers
+        }
+
+        function previewFile(file) {
+            const fileReader = new FileReader();
+            fileReader.onload = () => {
+                const fileContainer = document.createElement('div');
+                fileContainer.classList.add('file-container');
+
+                // Affichage de l'aperçu du fichier
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    img.src = fileReader.result;
+                    fileContainer.appendChild(img);
+                } else if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.controls = true;
+                    video.src = fileReader.result;
+                    fileContainer.appendChild(video);
+                }
+
+                // Ajoute une icône de suppression
+                const deleteIcon = document.createElement('i');
+                deleteIcon.className = "bi bi-trash delete-icon";
+                deleteIcon.onclick = () => {
+                    fileContainer.remove();
+                    removeFile(file); // Supprime le fichier si on clique sur la poubelle
+                };
+                fileContainer.appendChild(deleteIcon);
+
+                // Ajoute l'aperçu dans la zone dédiée
+                previewContainer.appendChild(fileContainer);
+            };
+            fileReader.readAsDataURL(file);
+        }
+
+        function updateInputFiles() {
+            // Met à jour le fileInput avec les fichiers dans DataTransfer
+            fileInput.files = dt.files;
+        }
+
+        function removeFile(fileToRemove) {
+            // Supprime un fichier du DataTransfer
+            const newDataTransfer = new DataTransfer();
+            [...dt.files].forEach(file => {
+                if (file !== fileToRemove) {
+                    newDataTransfer.items.add(file); // Ajoute les fichiers sauf celui à supprimer
+                }
+            });
+            dt = newDataTransfer; // Remplace l'ancien DataTransfer par le nouveau
+            updateInputFiles(); // Met à jour l'input
+        }
+
+
     </script>
 }

@@ -32,6 +32,7 @@ namespace NextGen.Front.Controllers
             {
                 var actualiteWithSource = new ActualiteWithSource
                 {
+                    Id = actualite.Id,
                     Actualite = actualite,
                     Source = _sourceSrv.GetSourcesByActualite(actualite.Id),
                     User = _userSrv.GetUser(actualite.IdUtilisateur)
@@ -112,6 +113,23 @@ namespace NextGen.Front.Controllers
         public ActionResult DeleteActualite(int id)
         {
             _actualiteSrv.DeleteActualite(id);
+
+            List<Source> sources = _sourceSrv.GetSourcesByActualite(id);
+            foreach (var source in sources)
+            {
+                _context.Sources.Remove(source);
+            }
+            // Suppression des sources associées à l'actualité dans le dossier Uploads de wwwroot
+            foreach (var source in sources)
+            {
+                var chemin = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Uploads", Path.GetFileName(source.Path));
+
+                if (System.IO.File.Exists(chemin))
+                {
+                    System.IO.File.Delete(chemin);
+                }
+            }
+            _context.SaveChanges();
 
             return RedirectToAction("Index");
         }

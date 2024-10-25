@@ -8,8 +8,9 @@ body {
 
 html {
     font-size: 14px;
+    background-color: rgb(32, 62, 112);
     font-family: "Montserrat", sans-serif;
-    font-optical-sizing: auto;
+    color: white;
 }
 
 @media (min-width: 768px) {
@@ -34,7 +35,31 @@ body {
 .navbar {
     border-bottom: 2px solid rgb(242, 241, 3);
     height: max-content;
-    color: white;   
+    color: white;
+    display: flex;
+    justify-content: space-around;
+}
+.elementsRedirect {
+    width: max-content;
+}
+
+.elementsRedirect ul  {
+    width: max-content;
+}
+
+.elementsRedirect li{
+    display: flex;
+    align-items: center;
+    margin : 0 1em;
+    font-size: 1.2em;
+}
+
+.elementsRedirect li a:hover {
+    color: rgb(242, 241, 3);
+}
+
+.navbar a {
+    color: white;
 }
 
 .login-buttons {
@@ -43,14 +68,14 @@ body {
     width: max-content;
 }
 
-.login-buttons ul{
-    display: flex;
-    justify-content: space-between;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.iconUsr{
+    font-size: 2em;
 }
 
-.login-buttons i{
-    font-size: 2em;
+.iconUsr:hover {
+    color: rgb(242, 241, 3);
+}
+
+footer{
+    display: none;
 }

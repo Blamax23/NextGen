@@ -17,6 +17,9 @@ namespace NextGen.Model
         {
             List<string> errors = new();
 
+            if (string.IsNullOrWhiteSpace(Contenu))
+                this.Contenu = " ";
+
             if (string.IsNullOrWhiteSpace(Titre))
                 errors.Add("Le titre de l'Actualite est obligatoire.");
 

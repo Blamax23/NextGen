@@ -1,0 +1,98 @@
+.content {
+    width: 50%;
+    border: 2px solid rgb(242, 241, 3);
+    border-radius: 15px;
+    padding: 2em;
+    margin-top: 10vh;
+}
+
+.loginForm {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.titleConnect{
+    display: flex;
+    justify-content: center;
+    margin: 2em 0;
+    width: max-content;
+
+}
+.loginForm h2 {
+    font-size: 3em;
+}
+
+.loginForm p{
+    font-size: 1.2em;
+}
+
+.divInput{
+    margin : 2em 0;
+}
+
+.emailDiv {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input {
+    border-style: none;
+    border-bottom: 1px solid rgb(242, 241, 3);
+    background-color: transparent;
+    color: white;
+    font-size: 1.2em;
+    width: 100%;
+}
+
+input:focus {
+    outline: none;
+    background-color: transparent;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    border-bottom: 4px solid rgb(242, 241, 3);
+}
+
+label{
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.formsLog button {
+    width: 40%;
+    height: 2em;
+}
+
+.formsBtn{
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh 0 0 0;
+}
+
+.loginBtn {
+    background-color: transparent;
+    border: 2px solid rgb(242, 241, 3);
+    border-radius: 5px;
+    color: white;
+    font-size: 1.5em;
+    font-weight : 600;
+}
+
+.loginBtn:hover {
+    background-color: rgb(242, 241, 3);
+    color: rgb(32, 62, 112);
+}
+
+.logoutBtn {
+    background-color: transparent;
+    border: 2px solid red;
+    border-radius: 5px;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.logoutBtn:hover {
+    background-color: red;
+    color: white;
+}

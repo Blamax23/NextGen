@@ -3,10 +3,10 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.content h2 {
-    font-size: 3em;
-    margin-top: 5vh;
-}
+    .content h2 {
+        font-size: 3em;
+        margin-top: 5vh;
+    }
 
 .actualite {
     width: 80%;
@@ -16,14 +16,14 @@
 }
 
 .title-zone {
-    padding: 2%;
-    padding-bottom: 0;
+    padding: 1%;
+    padding-left: 2%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    border-bottom: 1px solid rgb(32, 62, 112);
+    border-bottom: 1px solid rgb(242, 241, 3);
 }
 
-.head-zone{
+.head-zone {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
@@ -49,16 +49,23 @@
     align-items: center;
 }
 
-.user-zone i{
+.user-zone i {
     font-size: 2em;
 }
 
 .user-zone p {
     margin: 0;
     height: max-content;
+    font-style: italic;
 }
 
-.content-zone{
+.content-zone {
+    padding: 0 1em;
+}
+
+.text-zone{
+    font-size: 1.25em;
+    margin: 0;
     padding: 2%;
 }
 
@@ -79,11 +86,11 @@
     padding-left: 10%;
 }
 
-.button-more{
+.button-more {
     width: 10%;
 }
 
-.button-more i{
+.button-more i {
     font-size: 3em;
 }
 
@@ -108,14 +115,13 @@
     color: rgb(32, 62, 112);
 }
 
-.actualite-form{
+.actualite-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 0 0 5vh 0;
-
+    margin: 0 0 2vh 0;
 }
 
 .actualite-form input {
@@ -124,10 +130,9 @@
     border-style: none;
     border-bottom: 1px solid rgb(242, 241, 3);
     background-color: transparent;
-    color: rgba(242, 241, 3, 0.5);
-    font-size: 2em;
-    
-
+    color: white;
+    font-size: 1.5em;
+    font-weight : bold;
 }
 
 .actualite-form input::placeholder {
@@ -152,7 +157,7 @@
     border: 1px solid rgb(242, 241, 3);
     background-color: transparent;
     color: rgb(242, 241, 3);
-    resize: none;   
+    resize: none;
     font-size: 1.2em;
 }
 
@@ -167,3 +172,120 @@
     color: white;
     font-family: "Montserrat", sans-serif;
 }
+
+.btns-close{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+}
+
+.btns-close button{
+    margin: 0 .5em;
+}
+
+.carouselSources {
+    height: 50vh;
+    overflow: hidden;
+}
+
+.carouselContainer {
+    width: 95%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: auto;
+    transition: transform 0.5s ease;
+}
+
+.sourceContainer {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.imgArticle {
+    height: 100%;
+    width: auto; /* Idem pour la vidéo */
+    max-width: none;
+}
+
+.videoArticle {
+    height: 100%;
+    width: auto; /* Idem pour la vidéo */
+    max-width: none;
+}
+
+.source-zone {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 2em;
+}
+
+.arrow {
+    width: 2vw;
+    aspect-ratio: 1;
+    border-top: 5px solid rgb(242, 241, 3);
+    border-right: 5px solid rgb(242, 241, 3);
+    margin: 0;
+    cursor: pointer;
+}
+
+.arrow-right {
+    transform: rotate(45deg);
+    position: inherit;
+}
+
+.arrow-left {
+    transform: rotate(-135deg);
+}
+
+.upload-container {
+    width: 100%;
+    text-align: center;
+    margin: 2em 0;
+}
+
+.drop-area {
+    border: 2px dashed rgb(242, 241, 3);
+    padding: 20px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.drop-area:hover {
+    background-color: rgb(242, 241, 3);
+    color: rgb(32, 62, 112);
+}
+
+.preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.preview-container .file-container {
+    position: relative;
+    margin: 10px;
+}
+
+.preview-container img,
+.preview-container video {
+    max-height: 30vh;
+    border: 1px solid #ccc;
+}
+
+.delete-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    cursor: pointer;
+    color: red;
+    font-size: 20px;
+}
+
+

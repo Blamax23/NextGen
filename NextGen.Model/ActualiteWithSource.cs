@@ -10,7 +10,7 @@ namespace NextGen.Model
         public int Id { get; set; }
         public Actualite Actualite { get; set; }
 
-        public List<Source> Source { get; set; } = new List<Source>();
+        public List<Source> Source { get; set; }
 
         public User User { get; set; }
 
