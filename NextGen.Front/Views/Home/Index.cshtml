@@ -1,16 +1,141 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Accueil";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    @if(User.Identity.IsAuthenticated)
-    {
-        <p>Authenticated</p>
-    }
-    else
-    {
-        <p>Not Authenticated</p>
-    })
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<link rel="stylesheet" href="~/css/Accueil.css" asp-append-version="true" />
+
+<div class="content">
+    <div class="homescreen">
+        <div class="home-presentation">
+            <div class="text-zone">
+                <img src="~/src/logo.png" />
+                <h1>Next Gen</h1>
+                <div class="subtitle-zone">
+                    <h2>Le sport,</h2>
+                    <h2 class="color">Pour tous</h2>
+                    <h2>, Partout</h2>
+                </div>
+            </div>
+            <div class="picture-zone">
+                <video autoplay muted loop>
+                    <source src="~/src/pres.mp4" type="video/mp4">
+                </video>
+                <div class="background"></div>
+            </div>
+        </div>
+        <div class="pictures table">
+            <div class="row">
+                <div class="col col-md-6"><img src="~/src/fond1.jpeg" /></div>
+                <div class="col col-md-3"><img src="~/src/2_1.jpeg" /></div>
+                <div class="col col-md-3"><img src="~/src/1_3.jpeg" /></div>
+            </div>
+            <div class="row">
+                <div class="col col-md-3"><img src="~/src/1_1.jpeg" /></div>
+                <div class="col col-md-9" style="overflow: hidden;"><img src="~/src/fond2Coupe.jpeg" style="object-position: bottom;" /></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="apropos">
+        <div class="title-zone">
+            <h2>Qui sommes nous ?</h2>
+        </div>
+        <div class="explication-zone">
+            <div class="text-zone">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
+                <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+            </div>
+            <div id="model-container" class="ballon-3d"></div>
+        </div>
+    </div>
+
+    <div class="valeurs">
+        <div class="recette-zone">
+            <div class="title-zone">
+                <h2>Notre recette</h2>
+            </div>
+            <div class="container my-5">
+                <div class="point-clefs">
+                    <div class="valeur">
+                        <div class="valeur-inner">
+                            <div class="valeur-front">
+                                <div class="detail-zone">
+                                    <h3>Coachs diplômés</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="valeur-back">
+                                <img src="~/src/coachs.jpeg" alt="La passion">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="valeur">
+                        <div class="valeur-inner">
+                            <div class="valeur-front">
+                                <div class="detail-zone">
+                                    <h3>Matériel fourni</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="valeur-back">
+                                <img src="~/src/materiel.jpeg" alt="La performance">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="valeur">
+                        <div class="valeur-inner">
+                            <div class="valeur-front">
+                                <div class="detail-zone">
+                                    <h3>Séance spécifique</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="valeur-back">
+                                <img src="~/src/spe.jpeg" alt="La convivialité">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="valeur">
+                        <div class="valeur-inner">
+                            <div class="valeur-front">
+                                <div class="detail-zone">
+                                    <h3>Valeurs humaines fortes</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                </div>
+                            </div>
+                            <div class="valeur-back">
+                                <img src="~/src/valeurs.jpeg" alt="La santé">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+<script src="~/js/ballon.js" asp-append-version="true"></script>
+
+<script>
+    // Donner la même width à background que celle de l'img
+    // const img = document.querySelector('.picture-zone video source');
+    // console.log(img.width);
+    // const background = document.querySelector('.background');
+    // background.style.width = (img.width - 1) + 'px';
+
+    const points = document.querySelectorAll('.point');
+
+    points.forEach(point => {
+        point.addEventListener('click', () => {
+            // Enlève la classe active de tous les points
+            points.forEach(p => p.classList.remove('active'));
+
+            // Ajoute la classe active au point cliqué
+            point.classList.add('active');
+        });
+    });
+</script>

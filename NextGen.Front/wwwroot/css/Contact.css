@@ -1,0 +1,125 @@
+.container{
+    margin-bottom: 25vh;
+}
+
+.content {
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+}
+
+    .content h2 {
+        font-size: 3em;
+        margin: 5vh 0;
+        text-align: center;
+    }
+
+.page-contact {
+    width: 75%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid rgb(242, 241, 3);
+    border-radius: 15px;
+}
+
+.form-contact {
+    width: 100%;
+}
+
+.send-zone {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(17, 33, 60, 0.6);
+    padding: 1em;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+    .send-zone .infoEmail {
+        width: 100%;
+        display:flex;
+        justify-content : space-between;
+        margin: .5em 0;
+    }
+
+    .send-zone input {
+        width: 93%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 2px solid rgb(242, 241, 3);
+        color:white;
+    }
+
+    .send-zone input:focus{
+        outline: none;
+    }
+
+
+.content-zone {
+    margin: 2em;
+}   
+
+.inputContenu {
+    height: 30vh;
+    background-color: rgba(17, 33, 60, 0.6);
+    color: white;
+    border: 1px solid rgb(242, 241, 3);
+}
+
+.inputContenu::placeholder{
+    color: white;
+}
+
+    .inputContenu:focus {
+        background-color: rgba(17, 33, 60, 0.6);
+        outline: none;
+        color: white;
+    }
+
+.btn-send{
+    width: 100%;
+    display:flex;
+    justify-content: center;
+    margin: 2em 0;
+}
+
+    .btn-send button {
+        width: 40%;
+        height: 7vh;
+        background-color: rgb(242, 241, 3);
+        color: rgba(17, 33, 60, 0.6);
+        font-size: 1.25em;
+        font-weight: 700;
+    }
+
+        .btn-send button:hover {
+            background-color: rgba(17, 33, 60, 0.6);
+            border: 1px solid rgb(242, 241, 3);
+        }
+
+.success{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2vh 0;
+}
+
+.bi-check2-circle{
+    color: rgb(242, 241, 3);
+    font-size: 20vh;
+}
+
+.success h1{
+    color: white;
+    font-size: 3em;
+    font-weight: 700;
+}
+
+.success p{
+    color: white;
+    font-size: 1.5em;
+    font-weight: 300;
+}

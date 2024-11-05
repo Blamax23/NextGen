@@ -7,6 +7,7 @@ using NextGen.Back.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.AspNetCore.StaticFiles;
 
 IConfiguration configuration = new ConfigurationBuilder()
             .SetBasePath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
@@ -15,8 +16,17 @@ IConfiguration configuration = new ConfigurationBuilder()
             .Build();
 
 
+// Récupérer la section EMailSettings et la mettre dans les claims de User
+var emailSettings = configuration.GetSection("EmailSettings");
+var email = emailSettings["Email"];
+var password = emailSettings["Password"];
+var smtp = emailSettings["Smtp"];
+var port = emailSettings["Port"];
+
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddSingleton<IConfiguration>(configuration);
 
 string connectionString = configuration.GetConnectionString("database");
 string pattern = @"Data Source=(.*?);";
@@ -67,7 +77,16 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = new FileExtensionContentTypeProvider
+    {
+        Mappings =
+        {
+            [".glb"] = "model/gltf-binary"
+        }
+    }
+});
 
 app.UseRouting();
 

@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using NextGen.Dal.Interfaces;
 using NextGen.Model;
 using NextGen.Dal.Context;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace NextGen.Front.Controllers
 {
@@ -22,12 +24,13 @@ namespace NextGen.Front.Controllers
             _context = context;
         }
         // GET: ActualiteController
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
+            var instagramPreview = new InstagramPreview("IGQWRQMkhLWTZAYeUxaeHZA3bVN6SjRTVFdOa0xlYmtDSGFNeTg5ZA0xNWnljUDNQUFE4YlE1YTYwVkFVdnVpVDFBWHhURUNSVkkwMzNoandpbXpkVThVbl84WUc4YWIzLU5nQlAxbU5FVkI2NWVPRGd6YWtiV3ZAENW8ZD", "17841418155900065");
+            var profile = await instagramPreview.GetProfilePreviewAsync();
 
-            List<ActualiteWithSource> actualiteWithSources = new List<ActualiteWithSource>();
+            ActualitesWithSourceAndIgProfile actualitesGlobales = new ActualitesWithSourceAndIgProfile();
             var actualites = _actualiteSrv.GetAllActualites();
-
             foreach (var actualite in actualites)
             {
                 var actualiteWithSource = new ActualiteWithSource
@@ -35,12 +38,14 @@ namespace NextGen.Front.Controllers
                     Id = actualite.Id,
                     Actualite = actualite,
                     Source = _sourceSrv.GetSourcesByActualite(actualite.Id),
-                    User = _userSrv.GetUser(actualite.IdUtilisateur)
+                    User = _userSrv.GetUser(actualite.IdUtilisateur),
                 };
                 actualiteWithSource.InsertLinks();
-                actualiteWithSources.Add(actualiteWithSource);
+                actualitesGlobales.Actualites.Add(actualiteWithSource);
             }
-            return View(actualiteWithSources);
+
+            actualitesGlobales.InstagramProfile = profile;
+            return View(actualitesGlobales);
         }
 
         [HttpPost]
@@ -133,67 +138,66 @@ namespace NextGen.Front.Controllers
 
             return RedirectToAction("Index");
         }
+    }
 
-        // GET: ActualiteController/Create
-        public ActionResult Create()
+    public class InstagramPreview
+    {
+        private readonly string _accessToken;
+        private readonly string _userId;
+        private readonly HttpClient _httpClient;
+
+        public InstagramPreview(string accessToken, string userId)
         {
-            return View();
+            _accessToken = accessToken;
+            _userId = userId;
+            _httpClient = new HttpClient
+            {
+                BaseAddress = new Uri("https://graph.instagram.com/")
+            };
         }
 
-        // POST: ActualiteController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<InstagramProfile> GetProfilePreviewAsync()
         {
             try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                // Récupérer les informations du profil
+                var profileResponse = await _httpClient.GetAsync(
+                    $"v12.0/{_userId}?fields=username,profile_picture_url,followers_count&access_token={_accessToken}");
+                profileResponse.EnsureSuccessStatusCode();
+                var profileDataString = await profileResponse.Content.ReadAsStringAsync();
+                var profileData = JsonSerializer.Deserialize<InstagramProfile>(profileDataString);
 
-        // GET: ActualiteController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+                // Récupérer les posts récents
+                var mediaResponse = await _httpClient.GetAsync(
+                    $"v12.0/{_userId}/media?fields=id,media_url,caption,permalink,media_type&limit=9&access_token={_accessToken}");
+                mediaResponse.EnsureSuccessStatusCode();
+                var mediaDataString = await mediaResponse.Content.ReadAsStringAsync();
+                var mediaData = JsonSerializer.Deserialize<InstagramMediaResponse>(mediaDataString);
 
-        // POST: ActualiteController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                var posts = new List<InstagramPost>();
+                foreach (var media in mediaData.Data)
+                {
+                    posts.Add(new InstagramPost
+                    {
+                        Id = media.Id,
+                        MediaUrl = media.MediaUrl,
+                        Caption = media.Caption,
+                        Permalink = media.Permalink,
+                        MediaType = media.MediaType
+                    });
+                }
 
-        // GET: ActualiteController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: ActualiteController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                return new InstagramProfile
+                {
+                    Username = profileData.Username,
+                    FollowersCount = profileData.FollowersCount,
+                    ProfilePictureUrl = profileData.ProfilePictureUrl,
+                    RecentPosts = posts
+                };
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                throw new Exception("Erreur lors de la récupération des données Instagram", ex);
             }
         }
     }

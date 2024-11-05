@@ -25,7 +25,15 @@ namespace NextGen.Front.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //var chemin = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "src", "ballon.glb");
+            //if (!System.IO.File.Exists(chemin))
+            //    return NotFound();
+
+            //byte[] fichierData = System.IO.File.ReadAllBytes(chemin);
+            //string fichierBase64 = Convert.ToBase64String(fichierData);
+
+
+            return View("Index");
         }
 
         public IActionResult Privacy()

@@ -8,11 +8,48 @@
         margin-top: 5vh;
     }
 
+.postsActu{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.actualites{
+    width: 70%;
+
+}
+
+.reseaux{
+    width: 30%;
+}
+
+.tableau{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 2em 0;
+}
+
 .actualite {
-    width: 80%;
-    border: 1px solid rgb(242, 241, 3);
+    width: 90%;
+    border: 3px solid rgb(242, 241, 3);
     border-radius: 25px;
     margin: 3% 0;
+}
+
+.no-actualite {
+    width: 100%;
+    font-weight: bold;
+    color: white;
+}
+
+.no-actualite p{
+    width: 100%;
+    font-size: 2em;
+    margin: 0;
+    padding-top: 0;
+
 }
 
 .title-zone {
@@ -20,7 +57,7 @@
     padding-left: 2%;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
-    border-bottom: 1px solid rgb(242, 241, 3);
+    border-bottom: 3px solid rgb(242, 241, 3);
 }
 
 .head-zone {
@@ -61,12 +98,24 @@
 
 .content-zone {
     padding: 0 1em;
+    margin: 2em 0;
 }
 
 .text-zone{
     font-size: 1.25em;
     margin: 0;
     padding: 2%;
+    padding-top: 0;
+}
+
+.text-zone a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.text-zone a:hover{
+    color: rgb(242, 241, 3);
 }
 
 .add-actualite-container {
@@ -74,8 +123,8 @@
     justify-content: center;
     align-items: center;
     margin: 5vh 0;
-    border: 2px solid rgb(242, 241, 3);
-    width: 80%;
+    border: 3px solid rgb(242, 241, 3);
+    width: 90%;
     border-radius: 15px;
 }
 
@@ -110,10 +159,11 @@
     font-size: 1.5em;
 }
 
-.btnAddActualite:hover {
-    background-color: rgb(242, 241, 3);
-    color: rgb(32, 62, 112);
-}
+    .btnAddActualite:hover {
+        background-color: rgb(242, 241, 3);
+        color: rgb(32, 62, 112);
+        border-radius: 10px;
+    }
 
 .actualite-form {
     display: flex;
@@ -189,16 +239,18 @@
 }
 
 .carouselContainer {
-    width: 95%;
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
-    margin: auto;
+    margin: 0 auto;
     transition: transform 0.5s ease;
 }
 
 .sourceContainer {
     height: 50vh;
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
     display: flex;
     justify-content: center; /* Centre le contenu horizontalement */
     align-items: center;
@@ -208,13 +260,11 @@
 .imgArticle {
     height: 100%;
     width: auto; /* Idem pour la vidéo */
-    max-width: none;
 }
 
 .videoArticle {
     height: 100%;
     width: auto; /* Idem pour la vidéo */
-    max-width: none;
 }
 
 .source-zone {
@@ -222,11 +272,17 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 2em;
+}
+
+.source-zone-carousel {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .arrow {
-    width: 2vw;
+    height: 3vh;
     aspect-ratio: 1;
     border-top: 5px solid rgb(242, 241, 3);
     border-right: 5px solid rgb(242, 241, 3);
@@ -288,4 +344,281 @@
     font-size: 20px;
 }
 
+.instagram-preview {
+    width: 100%;
+    margin: 6.5vh 0;
+    font-family: Arial, sans-serif;
+    /*background-color: rgb(32, 62, 112);*/
+    background-color: rgb(16, 33, 60);
+    border: 3px solid rgb(242, 241, 3);
+    border-radius: 15px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.profile-picture {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 16px;
+}
+
+.profile-info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-info h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.profile-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #8e8e8e;
+}
+
+.follow-button {
+    padding: 8px 16px;
+    margin-top: 8px;
+    border: none;
+    background-color: #0095f6;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+}
+
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+}
+
+.post {
+    position: relative;
+    overflow: hidden;
+}
+
+    .post img, .post video {
+        width: 100%;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+    }
+
+
+.reseaux a{
+    text-decoration: none;
+    color: white;
+}
+
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); /* Fond semi-transparent */
+}
+
+.content-modal{
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* Image agrandie */
+.modal-img {
+    display: block;
+    margin: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%
+}
+
+/* Vidéo agrandie */
+.modal-video {
+    display: block;
+    margin: auto;
+    width: auto;
+    max-width: 100%;
+    max-height: 100%
+}
+
+/* Bouton de fermeture */
+.closeSource {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Visuel pour le modal de suppression */
+.modal-delete {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8); /* Fond semi-transparent */
+}
+
+#modalDelete.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease-in-out;
+    padding: 0;
+}
+
+/* Style pour le contenu du modal */
+.content-modal {
+    background-color: rgb(32, 62, 112);
+    border: 2px solid rgb(242, 241, 3);
+    margin: 15% auto;
+    padding: 2rem;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-20px);
+    animation: slideIn 0.3s ease-out forwards;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style pour le texte */
+    .content-modal p {
+        color: white;
+        font-size: 1.2rem;
+        text-align: center;
+        font-weight: 500;
+    }
+
+    .content-modal i{
+        color: rgb(242, 241, 3);
+        font-size: 5rem;
+    }
+
+/* Style pour le conteneur des boutons */
+.btns-delete {
+    display: flex;
+    width: 80%;
+    justify-content: space-around;
+    margin: 0 auto;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Style commun pour les boutons */
+.btns-delete button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 120px;
+    position: relative;
+}
+
+/* Style spécifique pour le bouton Supprimer */
+.btns-delete .btn-danger {
+    background-color: #dc3545;
+    color: white;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+}
+
+.btns-delete .btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(220, 53, 69, 0.3);
+}
+
+/* Style spécifique pour le bouton Annuler */
+.btns-delete .btn-secondary {
+    background-color: #f8f9fa;
+    color: #6c757d;
+    border: 1px solid #dee2e6;
+}
+
+.btns-delete .btn-secondary:hover {
+    background-color: #e2e6ea;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media queries pour la responsivité */
+@media (max-width: 768px) {
+    .content-modal {
+        width: 95%;
+        margin: 30% auto;
+        padding: 1.5rem;
+    }
+
+    .content-modal p {
+        font-size: 1.1rem;
+    }
+
+    .btns-delete {
+        flex-direction: column;
+    }
+
+    .btns-delete button {
+        width: 100%;
+    }
+}
 

@@ -1,119 +1,283 @@
 ﻿@using NextGen.Model;
 @using SixLabors.ImageSharp;
+@using System.Text.RegularExpressions;
 
-@model List<ActualiteWithSource>;
+@model ActualitesWithSourceAndIgProfile;
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Actualités";
 }
 
-<link rel="stylesheet" href="~/css/Actualite.css" />
+<link rel="stylesheet" href="~/css/Actualite.css" asp-append-version="true" />
 
 <div class="content">
-    <h2>Actualités</h2>
-    <div class="tableau">
-        @if (User.Identity.IsAuthenticated)
-        {
-            <div class="add-actualite-container">
-                <button id="btnAddActualite" class="btn btnAddActualite" onclick="toggleForm()">
-                    <div class="button-text">
-                        Ajouter une actualité
-                    </div>
-                    <div class="button-more">
-                        <i class="bi bi-plus-lg"></i>
-                    </div>
-                </button>
-                <form asp-action="AddActualite" method="post" enctype="multipart/form-data" class="actualite-form" id="formAddActualite" style="display: none;">
-                    <div class="title-zone">
-                        <input type="text" name="Titre" id="actualiteTitle" class="inputTitre" placeholder="Titre de l'actualité" required />
-                    </div>
-                    <div class="content-zone">
-                        <textarea name="Contenu" class="form-control inputContenu" id="actualiteContent" placeholder="Contenu de l'actualité"></textarea>
-                        <div class="upload-container" id="uploadContainer">
-                            <div class="drop-area" id="dropArea">
-                                Glissez-déposez vos fichiers ici
-                            </div>
-                            <input type="file" name="Sources" id="actualiteSources" multiple style="display: none;" onchange="handleFiles(this.files)">
-                        </div>
-                        <div id="previewContainer" class="preview-container"></div>
-                    </div>
-                    <div class="btns-close">
-                        <button type="button" class="btn btn-danger" onclick="toggleForm()">Annuler</button>
-                        <button type="submit" class="btn btn-success">Enregistrer</button>
-                    </div>
-                </form>
-            </div>
-        }
-        @foreach (var actualite in Model)
-        {
-            var rgbColor = actualite.User.StringToRgb();
-            <div class="actualite">
-                <div class="title-zone">
-                    <div class="head-zone">
-                        <h3>@actualite.Actualite.Titre</h3>
-                        <p>@actualite.Actualite.ReturnDateModification()</p>
-                    </div>
-                    <div class="user-zone">
-                        <i class="bi bi-person-circle" style="color: @rgbColor ;"></i>
-                        <p>@actualite.User.FirstName</p>
-                    </div>
-                </div>
-                <div class="content-zone">
-                    @if (!string.IsNullOrWhiteSpace(actualite.Actualite.Contenu))
-                    {
-                        <div class="text-zone">
-                            <p>@actualite.Actualite.Contenu</p>
-                        </div>
-                    }
-                    @if (actualite.Source != null && actualite.Source.Count() > 0)
-                    {
-                        <div class="source-zone" id="actualite@(actualite.Id)">
-                            @if (actualite.Source.Count() > 1)
-                            {
-                                <div class="arrow arrow-left" onclick="changeSource(-1, @(actualite.Id))"></div>
-                            }
-                            <div class="carouselSources">
-                                <div class="carouselContainer">
-                                    @for (int i = 0; i < actualite.Source.Count(); i++)
-                                    {
-                                        var source = actualite.Source.ElementAt(i);
-                                        <div class="sourceContainer" data-index="@i">
-                                            @if (source.Type == "image")
-                                            {
-                                                <img class="imgArticle" src="@Url.Content(source.Path)" alt="Image" />
-                                            }
-                                            @if (source.Type == "video")
-                                            {
-                                                <video controls class="videoArticle">
-                                                    <source src="@Url.Content(source.Path)" type="video/mp4" />
-                                                    Your browser does not support the video tag.
-                                                </video>
-                                            }
-                                        </div>
-                                    }
-                                </div>
-                            </div>
-                            @if (actualite.Source.Count() > 1)
-                            {
-                                <div class="arrow arrow-right act@(actualite.Id)" onclick="changeSource(1, @(actualite.Id))"></div>
-                            }
-                        </div>
-                    }
-                </div>
-                <!--Bouton qui renvoie vers l'action de suppression de l'article-->
+    <div class="postsActu">
+        <div class="actualites">
+            <h2>Actualités</h2>
+            <div class="tableau">
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <div class="delete" style="display: flex; justify-content: right; margin: 0 1em 1em 0;">
-                        <a href="@Url.Action("DeleteActualite", "Actualite", new { id = actualite.Actualite.Id })" class="deleteBtn btn btn-danger">Supprimer</a>
+                    <div class="add-actualite-container shadow-lg" id="add-actualite-container">
+                        <button id="btnAddActualite" class="btn btnAddActualite" onclick="toggleForm()">
+                            <div class="button-text">
+                                Ajouter une actualité
+                            </div>
+                            <div class="button-more">
+                                <i class="bi bi-plus-lg"></i>
+                            </div>
+                        </button>
+                        <form asp-action="AddActualite" method="post" enctype="multipart/form-data" class="actualite-form" id="formAddActualite" style="display: none;">
+                            <div class="title-zone">
+                                <input type="text" name="Titre" id="actualiteTitle" class="inputTitre" placeholder="Titre de l'actualité" required />
+                            </div>
+                            <div class="content-zone">
+                                <textarea name="Contenu" class="form-control inputContenu" id="actualiteContent" placeholder="Contenu de l'actualité"></textarea>
+                                <div class="upload-container" id="uploadContainer">
+                                    <div class="drop-area" id="dropArea">
+                                        Glissez-déposez vos fichiers ici
+                                    </div>
+                                    <input type="file" name="Sources" id="actualiteSources" accept=".mp4, .jpeg, .jpg, .png" multiple style="display: none;" onchange="handleFiles(this.files)">
+                                </div>
+                                <div id="previewContainer" class="preview-container"></div>
+                            </div>
+                            <div class="btns-close">
+                                <button type="button" class="btn btn-danger" onclick="toggleForm()">Annuler</button>
+                                <button type="submit" class="btn btn-success">Enregistrer</button>
+                            </div>
+                        </form>
                     </div>
                 }
+                @if (Model.Actualites.Count() == 0)
+                {
+                    <div class="no-actualite">
+                        <p>Aucune actualité n'a été publiée pour le moment.</p>
+                    </div>
+                }
+                else
+                {
+                    @foreach (var actualite in Model.Actualites)
+                    {
+                        var rgbColor = actualite.User.StringToRgb();
+                        <div class="actualite shadow-lg" data-id="@actualite.Id">
+                            <div class="title-zone">
+                                <div class="head-zone">
+                                    <h3>@actualite.Actualite.Titre</h3>
+                                    <p>@actualite.Actualite.ReturnDateModification()</p>
+                                </div>
+                                <div class="user-zone">
+                                    <i class="bi bi-person-circle" style="color: @rgbColor ;"></i>
+                                    <p>@actualite.User.FirstName</p>
+                                </div>
+                            </div>
+                            <div class="content-zone">
+                                @if (!string.IsNullOrWhiteSpace(actualite.Actualite.Contenu))
+                                {
+                                    // Regex pour détecter les liens dans le contenu sous format [{"Name": "Lien", "Url": "http://www.example.com"}]
+                                    var regex = new Regex(@"\[{""Name"": ""(.*?)"", ""Url"": ""(.*?)""}\]");
+                                    var matches = regex.Matches(actualite.Actualite.Contenu);
+                                    if (matches.Count > 0)
+                                    {
+                                        <p class="text-zone">
+                                            @for (int i = 0; i < matches.Count; i++)
+                                            {
+                                                var match = matches[i];
+                                                var link = match.Groups[2];
+                                                var name = match.Groups[1];
+                                                var index = actualite.Actualite.Contenu.IndexOf(match.Groups[0].ToString()[0]);
+                                                var before = actualite.Actualite.Contenu.Substring(0, index);
+                                                var after = actualite.Actualite.Contenu.Substring(index + match.Groups[0].ToString().Length);
+                                                <span>@before</span>
+                                                <a href="@link" target="_blank">@name</a>
+                                                <span>@after</span>
+                                            }
+                                        </p>
+                                    }
+                                    else
+                                    {
+                                        <p class="text-zone">@actualite.Actualite.Contenu</p>
+                                    }
+                                }
+                                @if (actualite.Source != null && actualite.Source.Count() > 0)
+                                {
+                                    var classSource = actualite.Source.Count() > 1 ? "source-zone-carousel" : "source-zone";
+                                    <div class="source-zone" id="actualite@(actualite.Id)">
+                                        @if (actualite.Source.Count() > 1)
+                                        {
+                                            <div class="arrow arrow-left" onclick="changeSource(-1, @(actualite.Id))"></div>
+                                        }
+                                        <div class="carouselSources">
+                                            <div class="carouselContainer">
+                                                @for (int i = 0; i < actualite.Source.Count(); i++)
+                                                {
+                                                    var source = actualite.Source.ElementAt(i);
+                                                    <div class="sourceContainer" data-index="@i">
+                                                        @if (source.Type == "image")
+                                                        {
+                                                            <img class="imgArticle" src="@Url.Content(source.Path)" alt="Image" />
+                                                        }
+                                                        @if (source.Type == "video")
+                                                        {
+                                                            <video controls class="videoArticle">
+                                                                <source src="@Url.Content(source.Path)" type="video/mp4" />
+                                                                Your browser does not support the video tag.
+                                                            </video>
+                                                        }
+                                                    </div>
+                                                }
+                                            </div>
+                                        </div>
+                                        @if (actualite.Source.Count() > 1)
+                                        {
+                                            <div class="arrow arrow-right act@(actualite.Id)" onclick="changeSource(1, @(actualite.Id))"></div>
+                                        }
+                                    </div>
+                                }
+                            </div>
+                            <!--Bouton qui renvoie vers l'action de suppression de l'article-->
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="delete" style="display: flex; justify-content: right; margin: 0 1em 1em 0;">
+                                    <button id="@actualite.Actualite.Id" class="deleteBtn btn btn-danger">Supprimer</button>
+                                </div>
+                            }
+                        </div>
+                    }
+                }
             </div>
-        }
+        </div>
+        <div class="reseaux">
+            <h2>Réseaux sociaux</h2>
+            <a href="https://www.instagram.com/@Model.InstagramProfile.Username/" target="_blank">
+                <div class="instagram-preview">
+                    <div class="profile-header">
+                        <img src="@Model.InstagramProfile.ProfilePictureUrl" class="profile-picture" alt="@Model.InstagramProfile.Username" />
+                        <div class="profile-info">
+                            <h2>@Model.InstagramProfile.Username</h2>
+                            <p><strong>@Model.InstagramProfile.FollowersCount</strong> followers</p>
+                            <button class="follow-button">S'abonner</button>
+                        </div>
+                    </div>
+
+                    <div class="posts-grid">
+                        @foreach (var post in Model.InstagramProfile.RecentPosts)
+                        {
+                            <div class="post">
+                                @if (post.MediaType == "IMAGE")
+                                {
+                                    <img src="@post.MediaUrl" alt="@post.Caption" />
+                                }
+                                else if (post.MediaType == "VIDEO")
+                                {
+                                    <video controls>
+                                        <source src="@post.MediaUrl" type="video/mp4" />
+                                        Your browser does not support the video tag.
+                                    </video>
+                                }
+                            </div>
+                        }
+                    </div>
+                </div>
+        </div></a>
+    </div>
+
+    <!-- Modal d'affichage des images-->
+    <div id="modal" class="modal">
+        <span class="closeSource">&times;</span>
+        <div class="content-modal">
+            <img class="modal-img" id="imageAgrandie">
+            <video controls class="modal-video" id="videoAgrandie">
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Modal de suppression -->
+    <div id="modalDelete" class="modal">
+        <div class="content-modal">
+            <i class="bi bi-exclamation-triangle-fill warning-icon"></i>
+            <p>Êtes-vous sûr de vouloir supprimer cette actualité ?</p>
+            <div class="btns-delete">
+                <button class="btn btn-secondary close">Annuler</button>
+                <button class="btn btn-danger delete">Supprimer</button>
+            </div>
+        </div>
     </div>
 </div>
 
 @section Scripts {
     <script type="text/javascript">
+        const deleteBtns = document.getElementsByClassName("deleteBtn");
+        const modalDelete = $("#modalDelete");
+        const btnsDelete = modalDelete.find(".btns-delete");
+        const closeDeleteBtn = btnsDelete.find(".close");
+        const deleteActu = btnsDelete.find(".delete");
+
+        // Variable pour stocker l'ID de l'actualité courante
+        let currentActualiteId = null;
+
+        // Attacher les gestionnaires d'événements aux boutons de suppression
+        for (let i = 0; i < deleteBtns.length; i++) {
+            deleteBtns[i].addEventListener("click", function (event) {
+                // Stocker l'ID de l'actualité sélectionnée
+                currentActualiteId = this.id;
+                // Afficher le modal
+                modalDelete.css("display", "block");
+            });
+        }
+
+        // Gestionnaire de clic pour la confirmation de suppression
+        deleteActu.on("click", function () {
+            if (currentActualiteId) {
+                window.location.href = "/Actualite/DeleteActualite/" + currentActualiteId;
+            }
+        });
+
+        // Gestionnaire de clic pour fermer le modal
+        closeDeleteBtn.on("click", function () {
+            modalDelete.css("display", "none");
+            // Réinitialiser l'ID courant
+            currentActualiteId = null;
+        });
+
+        // Sélectionne les éléments nécessaires
+        const modal = document.getElementById("modal");
+        const imgMiniature = $(".imgArticle");
+        const imageAgrandie = document.getElementById("imageAgrandie");
+
+        const closeBtn = document.getElementsByClassName("close")[0];
+
+        // Affiche le modal quand l'image miniature est cliquée
+        imgMiniature.on("click", function () {
+            modal.style.display = "block";
+            imageAgrandie.src = this.src;
+            videoAgrandie.style.display = "none";
+            imageAgrandie.style.display = "block";
+        });
+
+        // Ferme le modal quand on clique sur le bouton de fermeture
+        closeBtn.onclick = function () {
+            modal.style.display = "none";
+        };
+
+        // Ferme le modal quand on clique en dehors de l'image
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // on insère le addeventlistener que si le textarea actualiteContent n'est pas en display block
+        console.log(document.getElementById("add-actualite-container"));
+        if (document.getElementById("add-actualite-container") !== null) {
+            document.getElementById("actualiteContent").addEventListener("input", (event) => {
+                console.log("ca marche");
+                let texte = event.target.value;
+                texte = texte.replace("+link+", "[{\"Name\": \"Nom de votre lien\", \"Url\": \"Votre lien\"}]");
+                event.target.value = texte;
+            });
+        }
+
         function toggleForm() {
             var btn = document.getElementById("btnAddActualite");
             var form = document.getElementById("formAddActualite");
@@ -145,12 +309,14 @@
                 currentIndex = 0; // Retourne à la première source
             }
 
-            // Récupérer la largeur de la première source
-            const width = sources[0].clientWidth;
-            const offset = -currentIndex * width; // Calcule le déplacement du carrousel
+            // Récupérer la largeur du carousel sources
             const actualite = $("#actualite" + idActualite);
             const carouselSources = actualite.find('.carouselSources');
             console.log(carouselSources);
+            const width = carouselSources.width();
+            console.log(width);
+            const offset = -currentIndex * width; // Calcule le déplacement du carrousel
+            console.log(offset);
             const carouselContainer = carouselSources.find('.carouselContainer');
             console.log(carouselContainer);
 
@@ -259,3 +425,5 @@
 
     </script>
 }
+
+

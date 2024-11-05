@@ -1,0 +1,36 @@
+﻿@using NextGen.Model;
+
+@{
+    ViewData["Title"] = "Contact";
+}
+
+<link rel="stylesheet" href="~/css/Contact.css" asp-append-version="true" />
+
+<div class="content">
+    <h2>Contact</h2>
+    <div class="page-contact shadow-lg">
+        <form action="@Url.Action("SendMessage", "Contact")" method="post" class="form form-contact">
+            <div class="send-zone">
+                <div class="infoEmail emailDiv">
+                    <label for="Email">Email :</label>
+                    <input type="email" name="Email" id="contactEmail" class="inputEmail" required />
+                </div>
+                <div class="infoEmail objetDiv">
+                    <label for="Objet">Objet :</label>
+                    <input type="text" name="Objet" id="contactObjet" class="inputObjet" required />
+                </div>
+            </div>
+            <div class="content-zone">
+                <textarea name="Contenu" class="form-control inputContenu" id="contactContent" placeholder="Votre message"></textarea>
+            </div>
+            <div class="btn-send">
+                <button type="submit" class="btn">Envoyer</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+    </script>
+}

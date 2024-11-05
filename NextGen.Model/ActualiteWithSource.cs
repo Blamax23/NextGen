@@ -32,4 +32,11 @@ namespace NextGen.Model
 
 
     }
+
+    public class ActualitesWithSourceAndIgProfile
+    {
+
+       public List<ActualiteWithSource> Actualites { get; set; } = new List<ActualiteWithSource>();
+       public InstagramProfile InstagramProfile { get; set; }
+    }
 }

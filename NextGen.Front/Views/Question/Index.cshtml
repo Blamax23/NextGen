@@ -3,13 +3,13 @@
 @model List<Question>;
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Foire aux Questions";
 }
 
 <link rel="stylesheet" href="~/css/Question.css" />
 
 <div class="content">
-    <h2>FAQ</h2>
+    <h2>Foire Aux Questions</h2>
     <div class="tableau">
         @if (User.Identity.IsAuthenticated)
         {
@@ -74,13 +74,14 @@
                 var reponse = document.querySelector(`#reponse-${index}`);
                 var icon = question.querySelector("i");
                 var reponses = document.querySelectorAll(".reponse-zone");
-                reponses.forEach((reponse, index) => {
-                    reponse.style.display = "none";
-                    reponse.previousElementSibling.style.borderBottomLeftRadius = "25px";
-                    reponse.previousElementSibling.style.borderBottomRightRadius = "25px";
-                    reponse.previousElementSibling.querySelector("i").style.transform = "rotate(0deg)";
+                reponses.forEach((reponse, i) => {
+                    if (index != i) {
+                        reponse.style.display = "none";
+                        reponse.previousElementSibling.style.borderBottomLeftRadius = "25px";
+                        reponse.previousElementSibling.style.borderBottomRightRadius = "25px";
+                        reponse.previousElementSibling.querySelector("i").style.transform = "rotate(0deg)";
+                    }
                 })
-
                 // Toggle display for the corresponding answer
                 if (reponse.style.display === "none" || reponse.style.display === "") {
                     reponse.style.display = "block";

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Homemade+Apple&display=swap');
 
 body {
     background-color: rgb(32, 62, 112);
@@ -14,48 +15,59 @@ html {
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
-body {
-  margin-bottom: 60px;
+.container {
+    width: 80vw;
+    max-width: 100vw;
+    margin-bottom: 20vh;
+}
+
+.pb-3 {
+    width: 100%
 }
 
 .navbar {
-    border-bottom: 2px solid rgb(242, 241, 3);
+    border-bottom: 5px solid rgb(242, 241, 3);
     height: max-content;
     color: white;
     display: flex;
     justify-content: space-around;
 }
+
 .elementsRedirect {
     width: max-content;
 }
 
-.elementsRedirect ul  {
-    width: max-content;
-}
+    .elementsRedirect ul {
+        width: max-content;
+    }
 
-.elementsRedirect li{
-    display: flex;
-    align-items: center;
-    margin : 0 1em;
-    font-size: 1.2em;
-}
+    .elementsRedirect li {
+        display: flex;
+        align-items: center;
+        margin: 0 1em;
+        font-size: 1.2em;
+    }
 
-.elementsRedirect li a:hover {
-    color: rgb(242, 241, 3);
+        .elementsRedirect li a:hover {
+            color: rgb(242, 241, 3);
+        }
+
+.logo a img {
+    height: 5vh;
 }
 
 .navbar a {
@@ -68,14 +80,47 @@ body {
     width: max-content;
 }
 
-.iconUsr{
+.iconUsr {
     font-size: 2em;
 }
 
-.iconUsr:hover {
-    color: rgb(242, 241, 3);
+    .iconUsr:hover {
+        color: rgb(242, 241, 3);
+    }
+
+.footer {
+    margin-top: 5vh;
+    border-top: 2px solid rgb(242, 241, 3);
+    background-color: rgba(17, 33, 60, 1);
 }
 
-footer{
-    display: none;
+.list-inline-item {
+    display: inline;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 1em;
+}
+
+    .list-inline-item a:hover {
+        color: rgb(242, 241, 3);
+        cursor: pointer;
+    }
+
+.list-inline-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.container-head-footer {
+    display: flex;
+    justify-content: space-around;
+    margin: 5vh 0;
+    margin-bottom: 0;
+}
+
+.container-footer {
+    display: flex;
+    justify-content: center;
 }
