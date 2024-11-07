@@ -14,11 +14,11 @@ html {
     color: white;
 }
 
-@media (min-width: 768px) {
+/*@media (min-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 100%;
     }
-}
+}*/
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
@@ -41,10 +41,11 @@ html {
 
 .navbar {
     border-bottom: 5px solid rgb(242, 241, 3);
+    padding: 0 10%;
     height: max-content;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .elementsRedirect {
@@ -89,7 +90,8 @@ html {
     }
 
 .footer {
-    margin-top: 5vh;
+    position: absolute;
+    bottom: 0;
     border-top: 2px solid rgb(242, 241, 3);
     background-color: rgba(17, 33, 60, 1);
 }
@@ -108,10 +110,10 @@ html {
         cursor: pointer;
     }
 
-.list-inline-item a {
-    color: white;
-    text-decoration: none;
-}
+    .list-inline-item a {
+        color: white;
+        text-decoration: none;
+    }
 
 .container-head-footer {
     display: flex;
@@ -123,4 +125,58 @@ html {
 .container-footer {
     display: flex;
     justify-content: center;
+}
+
+
+@media (max-width: 1440px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    html {
+        font-size: 7px;
+    }
+
+    .elementsRedirect li {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 6px;
+    }
+
+    .elementsRedirect li {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 426px) {
+    html {
+        font-size: 4px;
+    }
+
+    .navbar {
+        padding: 0 5%;
+        padding-left: 10%;
+    }
+
+    .elementsRedirect ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .elementsRedirect li {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 321px){
+    .logo{
+        display: none;
+    }
 }

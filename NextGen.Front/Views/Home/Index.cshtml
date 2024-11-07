@@ -10,7 +10,7 @@
 <div class="content">
     <div class="homescreen">
         <div class="home-presentation">
-            <div class="text-zone">
+            <div class="title-text-zone">
                 <img src="~/src/logo.png" />
                 <h1>Next Gen</h1>
                 <div class="subtitle-zone">
@@ -26,7 +26,7 @@
                 <div class="background"></div>
             </div>
         </div>
-        <div class="pictures table">
+        <div class="pictures table computer">
             <div class="row">
                 <div class="col col-md-6"><img src="~/src/fond1.jpeg" /></div>
                 <div class="col col-md-3"><img src="~/src/2_1.jpeg" /></div>
@@ -35,6 +35,21 @@
             <div class="row">
                 <div class="col col-md-3"><img src="~/src/1_1.jpeg" /></div>
                 <div class="col col-md-9" style="overflow: hidden;"><img src="~/src/fond2Coupe.jpeg" style="object-position: bottom;" /></div>
+            </div>
+        </div>
+        <div class="pictures table mobile">
+            <div class="row">
+                <div class="col col-md-12"><img src="~/src/fond1.jpeg" /></div>
+            </div>
+            <div class="row">
+                <div class="col col-md-6"><img src="~/src/2_1.jpeg" /></div>
+                <div class="col col-md-6"><img src="~/src/1_3.jpeg" /></div>
+            </div>
+            <div class="row">
+                <div class="col col-md-12"><img src="~/src/1_1.jpeg" /></div>
+            </div>
+            <div class="row">
+                <div class="col col-md-12" style="overflow: hidden;"><img src="~/src/fond2Coupe.jpeg" style="object-position: bottom;" /></div>
             </div>
         </div>
     </div>
@@ -138,4 +153,28 @@
             point.classList.add('active');
         });
     });
+
+    // Récupérer l'élément à modifier
+    const myElementParent = $("#model-container")
+    const myElement = $("#model-container")[0];
+
+    myElement.style.backgroundColor = 'transparent';
+
+    function updateElementStyle() {
+        // Modifier le style de l'élément en fonction de la largeur de la fenêtre
+        console.log(window.innerWidth);
+        if (window.innerWidth >= 768) {
+            console.log("c'est 50%");
+            myElement.style.width = '50%';
+        } else {
+            console.log("c'est 100%");
+            myElement.style.width = '100%';
+        }
+    }
+
+    // Appeler la fonction pour initialiser le style
+    updateElementStyle();
+
+    // Écouter les événements de redimensionnement d'écran et mettre à jour le style
+    window.addEventListener('resize', updateElementStyle);
 </script>

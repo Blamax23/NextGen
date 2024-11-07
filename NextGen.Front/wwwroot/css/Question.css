@@ -73,8 +73,9 @@
     border-style: none;
     border-bottom: 1px solid rgb(242, 241, 3);
     background-color: transparent;
-    color: rgba(242, 241, 3, 0.5);
+    color: white;
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 .question-zone-form input::placeholder {
@@ -90,8 +91,10 @@
 }
 
 .reponse-zone-form {
-    background-color: rgba(53, 104, 188, 0.2);
+    background-color: rgb(37, 71, 128);
     padding: 1em;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
 }
 
 .reponse-zone-form textarea {
@@ -103,7 +106,7 @@
     border-radius: 15px;
     border: 1px solid rgb(242, 241, 3);
     background-color: transparent;
-    color: rgba(242, 241, 3, 0.5);
+    color: white;
     resize: none;
     font-size: 1.2em;
 }
@@ -122,7 +125,7 @@
 
 .question {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 25px;
     margin : 3em 0;
 }
 
@@ -130,7 +133,7 @@
     display: flex;
     justify-content: space-between;
     padding: 2em;
-    background-color: rgba(17, 33, 60, 0.6);
+    background-color: rgb(23, 45, 81);
     border-radius: 25px;
     cursor: pointer;
 }
@@ -145,7 +148,7 @@
 }
 
 .reponse-zone {
-    background-color: rgba(53, 104, 188, 0.2);
+    background-color: rgb(37, 71, 128);
     padding: 2em;
     cursor: pointer;
 }
@@ -186,4 +189,107 @@
 
 .btns-close button{
     margin: 0 .5em;
+}
+
+@media (max-width: 1025px){
+    .container{
+        margin-bottom: 25vh;
+    }
+
+    .btnAddQuestion{
+        font-size: 2.5em;
+    }
+
+    .question{
+        font-size: 1.25em;
+    }
+
+    .reponse-zone{
+        font-size: 1.25em;
+    }
+
+    .btns-close .btn{
+        font-size: 1.25em;
+    }
+}
+
+@media (max-width: 768px) {
+    .reponse-zone{
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 426px) {
+    .btnAddQuestion{
+        font-size: 2.2em;
+        height: 7.5vh;
+    }
+
+    .question-zone-form{
+        font-size: 1.5em;
+    }
+
+    .reponse-zone-form{
+        font-size: 1.5em;
+    }
+
+        .reponse-zone-form textarea {
+            padding: 2%;
+        }
+
+    .button-text{
+        font-size: 1.5em;
+    }
+
+    .question{
+        font-size: 1.5em;
+    }
+
+    .reponse-zone{
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 376px) {
+    .btnAddQuestion {
+        font-size: 2em;
+    }
+
+    .question-zone-form {
+        font-size: 1.2em;
+    }
+
+    .reponse-zone-form {
+        font-size: 1.2em;
+    }
+
+    .reponse-zone-form textarea {
+        padding: 2%;
+    }
+
+    .button-text {
+        font-size: 1.75em;
+    }
+
+    .button-more i {
+        font-size: 3.5em;
+    }
+
+    .question {
+        font-size: 1.75em;
+    }
+
+    .reponse-zone {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 321px) {
+    .btnAddQuestion {
+        font-size: 1.75em;
+    }
+
+    .button-text {
+        font-size: 2em;
+    }
 }

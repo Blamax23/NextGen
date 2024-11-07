@@ -145,39 +145,39 @@
                 }
             </div>
         </div>
-        <div class="reseaux">
-            <h2>Réseaux sociaux</h2>
-            <a href="https://www.instagram.com/@Model.InstagramProfile.Username/" target="_blank">
-                <div class="instagram-preview">
-                    <div class="profile-header">
-                        <img src="@Model.InstagramProfile.ProfilePictureUrl" class="profile-picture" alt="@Model.InstagramProfile.Username" />
-                        <div class="profile-info">
-                            <h2>@Model.InstagramProfile.Username</h2>
-                            <p><strong>@Model.InstagramProfile.FollowersCount</strong> followers</p>
-                            <button class="follow-button">S'abonner</button>
-                        </div>
-                    </div>
+        @* <div class="reseaux">
+        <h2>Réseaux sociaux</h2>
+        <a href="https://www.instagram.com/@Model.InstagramProfile.Username/" target="_blank">
+        <div class="instagram-preview">
+        <div class="profile-header">
+        <img src="@Model.InstagramProfile.ProfilePictureUrl" class="profile-picture" alt="@Model.InstagramProfile.Username" />
+        <div class="profile-info">
+        <h2>@Model.InstagramProfile.Username</h2>
+        <p><strong>@Model.InstagramProfile.FollowersCount</strong> followers</p>
+        <button class="follow-button">S'abonner</button>
+        </div>
+        </div>
 
-                    <div class="posts-grid">
-                        @foreach (var post in Model.InstagramProfile.RecentPosts)
-                        {
-                            <div class="post">
-                                @if (post.MediaType == "IMAGE")
-                                {
-                                    <img src="@post.MediaUrl" alt="@post.Caption" />
-                                }
-                                else if (post.MediaType == "VIDEO")
-                                {
-                                    <video controls>
-                                        <source src="@post.MediaUrl" type="video/mp4" />
-                                        Your browser does not support the video tag.
-                                    </video>
-                                }
-                            </div>
-                        }
-                    </div>
-                </div>
+        <div class="posts-grid">
+        @foreach (var post in Model.InstagramProfile.RecentPosts)
+        {
+        <div class="post">
+        @if (post.MediaType == "IMAGE")
+        {
+        <img src="@post.MediaUrl" alt="@post.Caption" />
+        }
+        else if (post.MediaType == "VIDEO")
+        {
+        <video controls>
+        <source src="@post.MediaUrl" type="video/mp4" />
+        Your browser does not support the video tag.
+        </video>
+        }
+        </div>
+        }
+        </div>
         </div></a>
+        </div> *@
     </div>
 
     <!-- Modal d'affichage des images-->
@@ -290,11 +290,41 @@
             }
         }
 
+        // on récupère toutes les sources de chaque actualite
+        console.log(window.innerWidth);
+        function resizeImage() {
+            if (window.innerWidth < 427) {
+                const sources = document.querySelectorAll('.sourceContainer');
+                for (var i = 0; i < sources.length; i++) {
+                    // on récupère avec jquery la source affichée dans chaque div source
+                    var source = $(sources[i]).find('img, video');
+                    if (source.height() > source.width()) {
+                        // on ajoute la classe sourcePortrait à la source
+                        sources[i].classList.add("sourcePortrait");
+                        sources[i].classList.remove("sourcePaysage");
+
+                    } else {
+                        // on ajoute la classe sourcePaysage à la source
+                        sources[i].classList.add("sourcePaysage");
+                        sources[i].classList.remove("sourcePortrait");
+                    }
+                }
+            } else {
+                const sources = document.querySelectorAll('.sourceContainer');
+                for (var i = 0; i < sources.length; i++) {
+                    sources[i].classList.remove("sourcePortrait");
+                    sources[i].classList.remove("sourcePaysage");
+                }
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", resizeImage);
+        window.addEventListener("resize", resizeImage);
+
         let currentIndex = 0;
 
         function changeSource(direction, idActualite) {
             const actualite = $("#actualite" + idActualite);
-            console.log(actualite);
             const sources = actualite.find('.sourceContainer');
 
             moveCarousel(direction, sources, idActualite);
@@ -312,16 +342,11 @@
             // Récupérer la largeur du carousel sources
             const actualite = $("#actualite" + idActualite);
             const carouselSources = actualite.find('.carouselSources');
-            console.log(carouselSources);
             const width = carouselSources.width();
-            console.log(width);
-            const offset = -currentIndex * width; // Calcule le déplacement du carrousel
-            console.log(offset);
+            const offset = -currentIndex * width;
             const carouselContainer = carouselSources.find('.carouselContainer');
-            console.log(carouselContainer);
 
             if (carouselContainer.length > 0) {
-                console.log("oui");
                 // Convertir en élément DOM pour utiliser les propriétés
                 const carouselContainerDOM = carouselContainer[0];
 
@@ -372,6 +397,16 @@
             updateInputFiles(); // Mets à jour l'input avec les nouveaux fichiers
         }
 
+        function makeItemResponsive(item) {
+            if (item.tagName === 'IMG') {
+                item.classList.add('img-fluid');
+            } else if (item.tagName === 'VIDEO') {
+                item.classList.add('video-fluid');
+            }
+            item.style.maxWidth = '100%';
+            item.style.height = 'auto';
+        }
+
         function previewFile(file) {
             const fileReader = new FileReader();
             fileReader.onload = () => {
@@ -382,11 +417,13 @@
                 if (file.type.startsWith('image/')) {
                     const img = document.createElement('img');
                     img.src = fileReader.result;
+                    makeItemResponsive(img);
                     fileContainer.appendChild(img);
                 } else if (file.type.startsWith('video/')) {
                     const video = document.createElement('video');
                     video.controls = true;
                     video.src = fileReader.result;
+                    makeItemResponsive(video);
                     fileContainer.appendChild(video);
                 }
 

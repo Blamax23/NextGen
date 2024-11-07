@@ -40,13 +40,15 @@
 }
 
     .home-presentation h1 {
-        font-size: 7em;
+        font-size: 6em;
         font-weight: 600;
         color: rgb(242, 241, 3);
+        display: flex;
+        justify-content: center;
     }
 
     .home-presentation h2 {
-        font-size: 3em;
+        font-size: 2.5em;
         font-style: italic;
     }
 
@@ -55,24 +57,29 @@
         font-style: italic;
         color: rgb(242, 241, 3);
         font-weight: 600;
-        font-size: 4em;
+        font-size: 3.5em;
         margin: 0 .5vw;
         margin-top: -1.5vh;
+        display: flex;
+        justify-content: center;
     }
 
 .subtitle-zone {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: max-content;
     background-color: transparent;
     overflow: hidden;
     border-radius: 5%;
 }
 
-.text-zone img {
+.title-text-zone img {
+    display: block;
     height: 25vh;
+    margin: auto;
 }
+
 
 
 .picture-zone {
@@ -94,6 +101,7 @@
         position: absolute;
         z-index: 100;
         margin-left: -0.7vh;
+        background-color: rgb(32, 62, 112);
     }
 
 .background {
@@ -109,23 +117,20 @@
     margin-right: -4.5%;
 }
 
-.col{
-    overflow: hidden;
-}
-
 .pictures {
     clear: both;
     width: 100%;
     overflow: hidden;
+    display: block;
 }
 
     .pictures img {
-        height: 100%;
         object-fit: cover;
     }
 
     .pictures div img {
         position: relative;
+        width: 100%;
         height: 40vh;
         object-fit: cover;
         object-position: top;
@@ -139,6 +144,10 @@
             animation: zoom 0.5s;
             animation-fill-mode: forwards;
         }
+
+.mobile {
+    display: none;
+}
 
 @keyframes zoom {
     from {
@@ -172,7 +181,7 @@
 
 .explication-zone {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -181,6 +190,7 @@
 }
 
 .text-zone {
+    height: 100%;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -244,7 +254,7 @@
     z-index: 100;
 }
 
-.point-in{
+.point-in {
     width: 100%;
     aspect-ratio: 1;
     display: flex;
@@ -261,14 +271,14 @@
     font-weight: 400;
 }
 
-.roadmap-point{
+.roadmap-point {
     width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.trait-droit{
+.trait-droit {
     width: 50%;
     height: 2px;
     background-color: rgb(242, 241, 3);
@@ -280,12 +290,12 @@
     margin-bottom: 5%;
 }
 
-.valeurs h2 {
-    width: max-content;
-    font-size: 3em;
-    font-weight: 600;
-    border-bottom: 5px solid rgb(242, 241, 3);
-}
+    .valeurs h2 {
+        width: max-content;
+        font-size: 3em;
+        font-weight: 600;
+        border-bottom: 5px solid rgb(242, 241, 3);
+    }
 
 /*.valeur {
     display: flex;
@@ -336,10 +346,9 @@
 
 .valeur {
     background-color: rgb(32, 62, 112);
+    height: 40vh;
     position: relative;
     width: 100%;
-    aspect-ratio: 1;
-    perspective: 1000px;
 }
 
 .valeur-inner {
@@ -393,21 +402,20 @@
     align-items: center;
     width: 100%;
     background-color: transparent;
-
 }
 
-.detail-zone h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    border-bottom: 2px solid rgb(242, 241, 3);
-    width: max-content;
-}
+    .detail-zone h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        border-bottom: 2px solid rgb(242, 241, 3);
+        width: max-content;
+    }
 
-.detail-zone p {
-    font-size: 1rem;
-    line-height: 1.6;
-}
+    .detail-zone p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
 
 @media (max-width: 767.98px) {
     .point-clefs {
@@ -419,4 +427,333 @@
     }
 }
 
+@media (max-width: 1440px){
 
+    .home-presentation h1 {
+        font-size: 8em;
+    }
+
+    .subtitle-zone {
+        font-size: 1.5em;
+    }
+
+        .subtitle-zone h2 {
+            padding: 0 .5vw;
+        }
+
+        .subtitle-zone .color {
+            padding: 0;
+            margin: 0;
+            margin-top: -2vh;
+        }
+
+}
+
+@media (max-width: 1024px) {
+    .picture-zone video {
+        height: 50vh;
+    }
+
+    .home-presentation {
+        width: 105%;
+    }
+
+    .home-presentation h1{
+        font-size: 10em;
+    }
+
+    .background {
+        height: 50vh;
+    }
+
+    .subtitle-zone {
+        font-size: 1.75em;
+    }
+
+        .subtitle-zone h2 {
+            padding: 0 .5vw;
+        }
+
+        .subtitle-zone .color {
+            padding: 0;
+            margin: 0;
+            margin-top: -1.2vh;
+        }
+
+    .text-zone {
+        height: 100%;
+        width: 50%;
+        font-size: 2em;
+    }
+
+    .point-clefs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .valeur {
+        aspect-ratio: 1;
+    }
+
+    .detail-zone h3 {
+        font-size: 3.5em;
+        margin-bottom: 5vh;
+    }
+
+    .detail-zone p {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-presentation {
+        height: max-content;
+        padding: 10vh 0;
+        padding-top: 5vh;
+    }
+
+    .picture-zone video {
+        height: 40vh;
+    }
+
+    .home-presentation {
+        width: 105%;
+    }
+
+    .background {
+        height: 40vh;
+    }
+
+    .subtitle-zone {
+        font-size: 1em;
+    }
+
+        .subtitle-zone h2 {
+            padding: 0 .5vw;
+        }
+
+        .subtitle-zone .color {
+            padding: 0;
+            margin: 0;
+            margin-top: -1.2vh;
+        }
+
+    .apropos{
+        margin-top: 65vh;
+    }
+
+    #model-container {
+        height: 40vh;
+        width: 40%;
+    }
+
+    .title-text-zone {
+        height: 100%;
+        font-size: 1.5em;
+    }
+
+        .title-text-zone img {
+            height: 20vh;
+        }
+
+        .title-text-zone h1 {
+            font-size: 6em;
+        }
+
+    .valeurs {
+        margin-bottom: 10vh;
+    }
+
+    .valeur {
+        aspect-ratio: 1;
+    }
+
+    .point-clefs {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail-zone h3 {
+        font-size: 3.5em;
+        margin-bottom: 5vh;
+    }
+
+    .detail-zone p {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 426px) {
+    .home-presentation {
+        width: 100%;
+        height: max-content;
+        margin-bottom: 10vh;
+        padding: 0;
+    }
+
+    .picture-zone {
+        display: none;
+    }
+
+    .title-text-zone {
+        width: 100%;
+        height: max-content;
+    }
+
+        .title-text-zone img {
+            height: 25vh;
+            margin: auto;
+            margin-top: 5vh;
+        }
+
+        .title-text-zone h1 {
+            font-size: 9em;
+        }
+
+    .subtitle-zone {
+        font-size: 1.5em;
+    }
+
+        .subtitle-zone h2 {
+            padding: 0 .5vw;
+        }
+
+        .subtitle-zone .color {
+            padding: 0;
+            margin: 0;
+            margin-top: -1.2vh;
+        }
+
+    #model-container {
+        height: 30vh;
+        width: 40%;
+    }
+
+    .valeurs {
+        margin-bottom: 10vh;
+    }
+
+        .valeurs h2 {
+            font-size: 4em;
+        }
+
+    .valeur {
+        aspect-ratio: unset;
+    }
+
+    .point-clefs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .detail-zone h3 {
+        font-size: 3.5em;
+        margin-bottom: 5vh;
+    }
+
+    .detail-zone p {
+        font-size: 2em;
+    }
+
+    .computer {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .apropos {
+        margin-top: 145vh;
+    }
+
+        .apropos h2 {
+            font-size: 4em;
+            margin-bottom: 7.5vh;
+        }
+
+    .explication-zone {
+        flex-direction: column;
+    }
+
+    #model-container {
+        order: 1;
+        width: 100%;
+    }
+
+    .text-zone {
+        order: 2;
+        font-size: 3em;
+        margin-top: 5vh;
+        width: 100%;
+    }
+
+    .point-clefs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .detail-zone h3 {
+        font-size: 5em;
+    }
+
+    .detail-zone p {
+        font-size: 3em;
+    }
+
+    .recette-zone {
+        margin-top: 7.5vh;
+    }
+}
+
+@media (max-width: 376px) {
+    .home-presentation h1 {
+        font-size: 8em;
+    }
+
+    .subtitle-zone h2 {
+        font-size: 2.3em;
+    }
+
+    .subtitle-zone .color {
+        font-size: 3.5em;
+    }
+
+    .apropos {
+        margin-top: 140vh;
+    }
+
+    .text-zone p {
+        font-size: 1em;
+    }
+
+    .valeur {
+        height: 300px;
+    }
+
+    .detail-zone h3 {
+        font-size: 5em;
+    }
+
+    .detail-zone p {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 321px) {
+    .logo{
+        display: none;
+    }
+
+    .home-presentation h1 {
+        font-size: 7.5em;
+    }
+
+    .subtitle-zone h2 {
+        font-size: 2em;
+    }
+
+    .subtitle-zone .color {
+        font-size: 3em;
+    }
+
+    .detail-zone h3 {
+        font-size: 4em;
+    }
+}

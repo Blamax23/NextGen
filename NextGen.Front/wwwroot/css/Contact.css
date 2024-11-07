@@ -1,5 +1,5 @@
 .container{
-    margin-bottom: 25vh;
+    margin-bottom: 35vh;
 }
 
 .content {
@@ -89,8 +89,8 @@
         width: 40%;
         height: 7vh;
         background-color: rgb(242, 241, 3);
-        color: rgba(17, 33, 60, 0.6);
-        font-size: 1.25em;
+        color: rgba(17, 33, 60);
+        font-size: 1.75em;
         font-weight: 700;
     }
 
@@ -122,4 +122,68 @@
     color: white;
     font-size: 1.5em;
     font-weight: 300;
+}
+
+@media (max-width: 1024px){
+    .page-contact {
+        width: 90%;
+    }
+
+    .send-zone label {
+        font-size: 1.7em;
+    }
+
+    .send-zone input {
+        font-size: 1.7em;
+    }
+
+    .content-zone textarea {
+        font-size: 1.7em;
+    }
+
+    .btn-send button {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .send-zone label {
+        font-size: 1.8em;
+    }
+
+    .send-zone input {
+        font-size: 1.8em;
+        width: 92%;
+    }
+
+    .content-zone textarea {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 426px) {
+    .page-contact {
+        width: 100%;
+    }
+
+
+    .send-zone label {
+        display: none;
+    }
+
+    .send-zone input {
+        font-size: 2.5em;
+        width: 95%;
+        margin: auto;
+    }
+
+    .content-zone textarea {
+        font-size: 2.5em;
+    }
+
+    .btn-send button {
+        font-size: 3.5em;
+        width: 50%;
+    }
 }

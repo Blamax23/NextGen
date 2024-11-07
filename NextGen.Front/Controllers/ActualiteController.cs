@@ -27,7 +27,7 @@ namespace NextGen.Front.Controllers
         public async Task<ActionResult> Index()
         {
             var instagramPreview = new InstagramPreview("IGQWRQMkhLWTZAYeUxaeHZA3bVN6SjRTVFdOa0xlYmtDSGFNeTg5ZA0xNWnljUDNQUFE4YlE1YTYwVkFVdnVpVDFBWHhURUNSVkkwMzNoandpbXpkVThVbl84WUc4YWIzLU5nQlAxbU5FVkI2NWVPRGd6YWtiV3ZAENW8ZD", "17841418155900065");
-            var profile = await instagramPreview.GetProfilePreviewAsync();
+            //var profile = await instagramPreview.GetProfilePreviewAsync();
 
             ActualitesWithSourceAndIgProfile actualitesGlobales = new ActualitesWithSourceAndIgProfile();
             var actualites = _actualiteSrv.GetAllActualites();
@@ -44,7 +44,7 @@ namespace NextGen.Front.Controllers
                 actualitesGlobales.Actualites.Add(actualiteWithSource);
             }
 
-            actualitesGlobales.InstagramProfile = profile;
+            //actualitesGlobales.InstagramProfile = profile;
             return View(actualitesGlobales);
         }
 
