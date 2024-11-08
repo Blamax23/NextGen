@@ -127,10 +127,32 @@ html {
     justify-content: center;
 }
 
+@media (min-width: 2100px) and (max-width: 2560px){
+    .navbar{
+        font-size:1.5em;
+    }
+
+    .list-inline-item{
+        font-size: 2.5em;
+    }
+}
+
 
 @media (max-width: 1440px) {
     html {
         font-size: 10px;
+    }
+
+    .navbar {
+        font-size: 1.5em;
+    }
+
+    .list-inline-item{
+        font-size: 2em;
+    }
+
+    .container-footer{
+        font-size:1.5em;
     }
 }
 
@@ -139,8 +161,16 @@ html {
         font-size: 7px;
     }
 
-    .elementsRedirect li {
-        font-size: 1.8em;
+    .navbar {
+        font-size: 2em;
+    }
+
+    .list-inline-item {
+        font-size: 2.5em;
+    }
+
+    .container-footer {
+        font-size: 2em;
     }
 }
 
@@ -149,8 +179,16 @@ html {
         font-size: 6px;
     }
 
-    .elementsRedirect li {
-        font-size: 2em;
+    .navbar{
+        font-size: 2.25em;
+    }
+
+    .list-inline-item {
+        font-size: 3em;
+    }
+
+    .container-footer {
+        font-size: 2.5em;
     }
 }
 
@@ -160,8 +198,9 @@ html {
     }
 
     .navbar {
-        padding: 0 5%;
+        padding: 0 4%;
         padding-left: 10%;
+        font-size: 2.5em;
     }
 
     .elementsRedirect ul {
@@ -170,13 +209,42 @@ html {
         justify-content: space-between;
     }
 
-    .elementsRedirect li {
+    .list-inline{
+        width: max-content;
+        margin: auto;
+    }
+
+    .list-inline-item {
+        font-size: 4em;
+    }
+
+    .container-head-footer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2.5vh;
+    }
+}
+
+@media (max-width: 375px) {
+    .navbar {
+        padding: 0 2%;
+        padding-left: 8%;
         font-size: 2.5em;
+    }
+
+    .logo{
+        display:none;
     }
 }
 
 @media (max-width: 321px){
     .logo{
         display: none;
+    }
+
+    .navbar {
+        font-size: 2.3em;
+        padding-left: 5%;
     }
 }

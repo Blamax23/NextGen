@@ -124,7 +124,41 @@
     font-weight: 300;
 }
 
+@media (max-width: 1440px){
+    .content h2{
+        font-size: 4em;
+    }
+
+    .send-zone label {
+        font-size: 1.5em;
+    }
+
+    .send-zone input {
+        font-size: 1.5em;
+    }
+
+    .content-zone textarea {
+        font-size: 1.5em;
+    }
+
+    .btn-send button {
+        font-size: 2em;
+    }
+
+    .success h1{
+        font-size : 4em;
+    }
+
+    .success p {
+        font-size: 2em;
+    }
+}
+
 @media (max-width: 1024px){
+    .content h2 {
+        font-size: 5em;
+    }
+
     .page-contact {
         width: 90%;
     }
@@ -144,21 +178,36 @@
     .btn-send button {
         font-size: 2em;
     }
+
+    .success h1 {
+        font-size: 5.5em;
+    }
+
+    .success p {
+        font-size: 3em;
+    }
 }
 
 @media (max-width: 768px) {
+    .content h2 {
+        font-size: 6em;
+    }
 
     .send-zone label {
-        font-size: 1.8em;
+        font-size: 2em;
     }
 
     .send-zone input {
-        font-size: 1.8em;
-        width: 92%;
+        font-size: 2em;
+        width: 91%;
     }
 
     .content-zone textarea {
-        font-size: 1.8em;
+        font-size: 2em;
+    }
+
+    .btn-send button {
+        font-size: 3em;
     }
 }
 
@@ -178,6 +227,10 @@
         margin: auto;
     }
 
+    .send-zone input::placeholder{
+        color: rgba(255,255,255,0.7);
+    }
+
     .content-zone textarea {
         font-size: 2.5em;
     }
@@ -185,5 +238,44 @@
     .btn-send button {
         font-size: 3.5em;
         width: 50%;
+    }
+
+    .success h1 {
+        font-size: 5em;
+    }
+
+    .success p {
+        font-size: 3em;
+    }
+}
+
+@media (min-width: 2100px) and (max-width: 2560px) {
+    .content h2 {
+        font-size: 5em;
+    }
+
+    .send-zone label {
+        font-size: 2em;
+    }
+
+    .send-zone input {
+        font-size: 2em;
+        width: 93%;
+    }
+
+    .content-zone textarea {
+        font-size: 2em;
+    }
+
+    .btn-send button {
+        font-size: 2.5em;
+    }
+
+    .success h1 {
+        font-size: 4em;
+    }
+
+    .success p {
+        font-size: 2em;
     }
 }

@@ -1,6 +1,6 @@
 .content {
     width: 50%;
-    border: 2px solid rgb(242, 241, 3);
+    border: 3px solid rgb(242, 241, 3);
     border-radius: 15px;
     padding: 2em;
     margin-top: 10vh;
@@ -19,11 +19,12 @@
     width: max-content;
 
 }
-.loginForm h2 {
-    font-size: 3em;
+.form h2 {
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
-.loginForm p{
+.form p{
     font-size: 1.2em;
 }
 
@@ -95,4 +96,206 @@ label{
 .logoutBtn:hover {
     background-color: red;
     color: white;
+}
+
+@media (max-width: 1440px){
+    .titleConnect{
+        font-size: 3em;
+    }
+
+    .logoutBtn{
+        font-size: 2em;
+    }
+
+    .content{
+        width: 50%;
+    }
+
+    .form h2 {
+        font-size: 3.5em;
+        font-weight: bold;
+    }
+
+    .form p {
+        font-size: 1.7em;
+    }
+
+    label {
+        font-size: 2em;
+    }
+
+    input {
+        font-size: 2em;
+    }
+
+    .loginBtn {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 1024px) {
+    .content {
+        width: 70%;
+        padding: 2.5em;
+    }
+
+    .titleConnect {
+        font-size: 4em;
+    }
+
+    .logoutBtn {
+        font-size: 3em;
+    }
+
+        .form h2 {
+            font-size: 4.5em;
+            font-weight: bold;
+        }
+
+        .form p {
+            font-size: 2.2em;
+        }
+
+    label {
+        font-size: 2.5em;
+    }
+
+    input {
+        font-size: 2.5em;
+    }
+
+    .loginBtn {
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    .content {
+        width: 80%;
+        padding: 3em;
+    }
+
+    .titleConnect {
+        font-size: 4.5em;
+    }
+
+    .logoutBtn {
+        font-size: 3.5em;
+    }
+
+        .form h2 {
+            font-size: 5em;
+        }
+
+        .form p {
+            font-size: 2.5em;
+        }
+
+    .formsLog {
+        margin-top: 2.5vh;
+    }
+
+    label {
+        font-size: 3em;
+    }
+
+    input {
+        font-size: 3em;
+    }
+
+    .loginBtn {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 426px) {
+    .content {
+        width: 100%;
+        padding: 4em;
+    }
+
+    .titleConnect {
+        font-size: 4em;
+    }
+
+    .logoutBtn {
+        font-size: 4em;
+        padding: .5em 1em;
+    }
+
+        .form h2 {
+            font-size: 5em;
+        }
+
+        .form p {
+            font-size: 3.5em;
+        }
+
+    .formsLog{
+        margin-top: 2.5vh;
+    }
+
+    label {
+        font-size: 4em;
+    }
+
+    input {
+        font-size: 4em;
+    }
+
+    .loginBtn {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 320px) {
+
+    .titleConnect {
+        font-size: 4em;
+    }
+
+    .logoutBtn {
+        font-size: 3.5em;
+    }
+
+    .form h2{
+        font-size: 4em;
+    }
+}
+
+
+@media (min-width: 2100px) and (max-width: 2560px) {
+
+    .titleConnect {
+        font-size: 4em;
+    }
+
+    .logoutBtn {
+        font-size: 3em;
+    }
+
+    .form h2 {
+        font-size: 3.5em;
+    }
+
+    .form h2 {
+        font-size: 3.5em;
+        font-weight: bold;
+    }
+
+    .form p {
+        font-size: 1.7em;
+    }
+
+    label {
+        font-size: 2em;
+    }
+
+    input {
+        font-size: 2em;
+    }
+
+    .loginBtn {
+        font-size: 2em;
+    }
 }

@@ -72,6 +72,7 @@
     display: flex;
     font-size: 2em;
     font-weight: bold;
+    width: 80%;
 }
 
 .head-zone p {
@@ -95,6 +96,7 @@
     margin: 0;
     height: max-content;
     font-style: italic;
+    font-size: 1.3em;
 }
 
 .content-zone {
@@ -642,9 +644,59 @@
     }
 }
 
+@media (max-width: 1440px){
+    .btnAddActualite{
+        font-size: 2em;
+    }
+
+    .head-zone p{
+        font-size: 1.25em;
+    }
+
+    .user-zone p{
+        font-size: 1.3em;
+    }
+
+    .deleteBtn{
+        font-size: 1.3em;
+    }
+
+    .text-zone{
+        font-size: 1.5em;
+    }
+
+    .actualite-form input {
+        font-size: 2em;
+    }
+
+    .actualite-form textarea {
+        font-size: 1.5em;
+    }   
+
+    .drop-area{
+        font-size: 1.5em;
+    }
+
+    .btn {
+        font-size: 1.25em;
+    }
+}
+
 @media (max-width: 1024px){
     .actualite{
         border-radius: 15px;
+    }
+
+    .actualites h2 {
+        font-size: 4.5em;
+    }
+
+    .btnAddActualite{
+        font-size: 2.5em;
+    }
+
+    .no-actualite {
+        font-size: 1.5em;
     }
 }
 
@@ -751,5 +803,32 @@
 
     .sourcePaysage {
         margin-top: 40%;
+    }
+}
+
+@media (min-width: 2100px) and (max-width: 2560px){
+    .user-zone p{
+        font-size: 1.5em;
+        margin-left: .25em; 
+    }
+
+    .user-zone{
+        justify-content: flex-start;
+    }
+
+    .head-zone p {
+        font-size: 1.5em;
+    }
+
+    .text-zone {
+        font-size: 1.5em;
+    }
+
+    .deleteBtn{
+        font-size: 1.5em;
+    }
+
+    .btnAddActualite{
+        font-size: 2.5em;
     }
 }
