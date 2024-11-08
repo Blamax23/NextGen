@@ -49,6 +49,10 @@ controls.maxPolarAngle = Infinity;
 camera.position.set(0, 2, 5);
 controls.update();
 
+// Créer un groupe pour le modèle
+const modelGroup = new THREE.Group();
+scene.add(modelGroup);
+
 let autoRotate = true;
 
 // Fonction d'animation
@@ -65,8 +69,7 @@ function animate() {
     });
 
     if (autoRotate) {
-        scene.rotation.y -= 0.005;
-        // scene.rotation.x += 0.005;
+        modelGroup.rotation.y -= 0.005;
     }
 
     controls.update();
@@ -88,9 +91,7 @@ loader.load(
 
         const model = gltf.scene;
 
-        scene.add(model);
-
-        // Centrer et ajuster l'échelle
+        // Calculer la boîte englobante
         const box = new THREE.Box3().setFromObject(model);
         const center = box.getCenter(new THREE.Vector3());
         const size = box.getSize(new THREE.Vector3());
@@ -98,15 +99,11 @@ loader.load(
         console.log('Taille du modèle:', size);
         console.log('Centre du modèle:', center);
 
-        // Ajuster la position
-        model.position.x = -center.x;
-        model.position.y = -center.y;
-        model.position.z = -center.z;
+        // Ajuster la position du modèle pour qu'il soit centré
+        model.position.sub(center);
 
-        // Ajuster la caméra en fonction de la taille du modèle
-        const maxDim = Math.max(size.x, size.y, size.z);
-        camera.position.z = maxDim * 2;
-        controls.update();
+        // Ajouter le modèle au groupe
+        modelGroup.add(model);
 
         console.log('Modèle ajouté à la scène');
     },
