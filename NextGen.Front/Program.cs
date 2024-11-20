@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.AspNetCore.ResponseCompression;
 
 IConfiguration configuration = new ConfigurationBuilder()
             .SetBasePath(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location))
@@ -34,7 +35,8 @@ string pathConnectionString = null;
 if (Regex.Match(connectionString, pattern).Success)
     pathConnectionString = Regex.Match(connectionString, pattern).Groups[1].Value.Trim();
 
-var pathFolder = Path.GetDirectoryName(pathConnectionString);
+//var pathFolder = Path.GetDirectoryName(pathConnectionString);
+string pathFolder = Path.Combine(Directory.GetCurrentDirectory(), "BDD");
 if (!Directory.Exists(pathFolder))
     Directory.CreateDirectory(pathFolder);
 
@@ -66,6 +68,28 @@ builder.Services.Configure<KestrelServerOptions>(options =>
     options.Limits.MaxRequestBodySize = 104857600; // 100 Mo
 });
 
+builder.Services.AddRouting(options => {
+    options.LowercaseUrls = true;
+    options.AppendTrailingSlash = true;
+});
+
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+    options.Providers.Add<BrotliCompressionProvider>();
+    options.Providers.Add<GzipCompressionProvider>();
+});
+
+builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
+{
+    options.Level = System.IO.Compression.CompressionLevel.Fastest;
+});
+
+builder.Services.Configure<GzipCompressionProviderOptions>(options =>
+{
+    options.Level = System.IO.Compression.CompressionLevel.Fastest;
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -91,6 +115,9 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseRouting();
 
 app.UseAuthorization();
+
+// Ajoutez cette ligne avant app.UseRouting()
+app.UseResponseCompression();
 
 app.MapControllerRoute(
     name: "default",

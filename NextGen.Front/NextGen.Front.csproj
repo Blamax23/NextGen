@@ -7,7 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\Uploads\Achille_prisonnier.png" />
+    <None Remove="robots.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="robots.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,6 +36,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\models\" />
+    <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
 
 </Project>

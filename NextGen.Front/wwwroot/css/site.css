@@ -68,7 +68,7 @@ html {
         }
 
 .logo a img {
-    height: 5vh;
+    height: 10vh;
 }
 
 .navbar a {
@@ -192,14 +192,115 @@ html {
     }
 }
 
-@media (max-width: 426px) {
+@media (max-width: 691px) {
+
+    /*.navbar {
+        padding: 0 4%;
+        padding-left: 10%;
+        font-size: 2.5em;
+    }
+
+    .elementsRedirect ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }*/
+
+    /*.list-inline {
+        width: max-content;
+        margin: auto;
+    }
+
+    .list-inline-item {
+        font-size: 3em;
+    }
+
+    .container-head-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2.5vh;
+    }*/
+
+    .list-inline-item {
+        font-size: 2.5em;
+    }
+
+    .container-footer {
+        font-size: 1.5em;
+    }  
+}
+
+@media (max-width: 581px) {
+    .navbar {
+        padding: 0 4%;
+        padding-left: 10%;
+        font-size: 2em;
+    }
+
+    .elementsRedirect ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .list-inline-item {
+        font-size: 2.25em;
+    }
+
+    .container-footer {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 527px) {
+    .logo a img{
+        height: 5vh;
+    }
+
+    .list-inline {
+        width: max-content;
+        height: 7vh;
+        margin: auto;
+    }
+
+    .list-inline-item {
+        font-size: 3em;
+    }
+
+    .container-head-footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2.5vh;
+    }
+}
+
+@media (max-width: 482px) {
+    .logo {
+        display: none;
+    }
+    .navbar {
+        padding: 0 4%;
+        padding-left: 10%;
+        font-size: 2em;
+    }
+
+    .elementsRedirect ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 428px) {
     html {
         font-size: 4px;
     }
 
     .navbar {
         padding: 0 4%;
-        padding-left: 10%;
+        padding-left: 13%;
         font-size: 2.5em;
     }
 
@@ -226,7 +327,7 @@ html {
     }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 387px) {
     .navbar {
         padding: 0 2%;
         padding-left: 8%;
@@ -235,6 +336,26 @@ html {
 
     .logo{
         display:none;
+    }
+}
+
+@media (max-width: 341px) {
+    .navbar {
+        padding: 0 2%;
+        padding-left: 4%;
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 327px) {
+    .navbar {
+        padding: 0 2%;
+        padding-left: 2%;
+        font-size: 2.5em;
+    }
+
+    .list-inline-item {
+        font-size: 3.5em;
     }
 }
 

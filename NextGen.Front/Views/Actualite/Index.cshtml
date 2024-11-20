@@ -87,7 +87,7 @@
                                                 var before = actualite.Actualite.Contenu.Substring(0, index);
                                                 var after = actualite.Actualite.Contenu.Substring(index + match.Groups[0].ToString().Length);
                                                 <span>@before</span>
-                                                <a href="@link" target="_blank">@name</a>
+                                                <a href="@link" target="_blank" title="@name">@name</a>
                                                 <span>@after</span>
                                             }
                                         </p>
@@ -113,7 +113,7 @@
                                                     <div class="sourceContainer" data-index="@i">
                                                         @if (source.Type == "image")
                                                         {
-                                                            <img class="imgArticle" src="@Url.Content(source.Path)" alt="Image" />
+                                                            <img class="imgArticle" src="@Url.Content(source.Path)" alt="Image de l'actualité' title="Image de l'actualité'" />
                                                         }
                                                         @if (source.Type == "video")
                                                         {
@@ -145,50 +145,13 @@
                 }
             </div>
         </div>
-        @* <div class="reseaux">
-        <h2>Réseaux sociaux</h2>
-        <a href="https://www.instagram.com/@Model.InstagramProfile.Username/" target="_blank">
-        <div class="instagram-preview">
-        <div class="profile-header">
-        <img src="@Model.InstagramProfile.ProfilePictureUrl" class="profile-picture" alt="@Model.InstagramProfile.Username" />
-        <div class="profile-info">
-        <h2>@Model.InstagramProfile.Username</h2>
-        <p><strong>@Model.InstagramProfile.FollowersCount</strong> followers</p>
-        <button class="follow-button">S'abonner</button>
-        </div>
-        </div>
-
-        <div class="posts-grid">
-        @foreach (var post in Model.InstagramProfile.RecentPosts)
-        {
-        <div class="post">
-        @if (post.MediaType == "IMAGE")
-        {
-        <img src="@post.MediaUrl" alt="@post.Caption" />
-        }
-        else if (post.MediaType == "VIDEO")
-        {
-        <video controls>
-        <source src="@post.MediaUrl" type="video/mp4" />
-        Your browser does not support the video tag.
-        </video>
-        }
-        </div>
-        }
-        </div>
-        </div></a>
-        </div> *@
     </div>
 
     <!-- Modal d'affichage des images-->
     <div id="modal" class="modal">
         <span class="closeSource">&times;</span>
-        <div class="content-modal">
-            <img class="modal-img" id="imageAgrandie">
-            <video controls class="modal-video" id="videoAgrandie">
-                <source src="" type="video/mp4" />
-                Your browser does not support the video tag.
-            </video>
+        <div class="content-modal-img">
+            <img class="modal-img" id="imageAgrandie" alt="Image agrandie" title="Image agrandie affichée par le modal">
         </div>
     </div>
 
@@ -245,7 +208,7 @@
         const imgMiniature = $(".imgArticle");
         const imageAgrandie = document.getElementById("imageAgrandie");
 
-        const closeBtn = document.getElementsByClassName("close")[0];
+        const closeBtn = document.getElementsByClassName("closeSource")[0];
 
         // Affiche le modal quand l'image miniature est cliquée
         imgMiniature.on("click", function () {
@@ -259,6 +222,13 @@
         closeBtn.onclick = function () {
             modal.style.display = "none";
         };
+
+        // const modalContentImg = document.getElementsByClassName("content-modal-img")[0];
+
+        // // Ferme le modal quand on clique dessus
+        // modalContentImg.onclick = function () {
+        //     modal.style.display = "none";
+        // };
 
         // Ferme le modal quand on clique en dehors de l'image
         window.onclick = function (event) {

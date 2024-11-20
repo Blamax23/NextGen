@@ -133,6 +133,12 @@ label{
     }
 }
 
+@media (max-width: 1225px) {
+    .form h2{
+        font-size: 3em;
+    }
+}
+
 @media (max-width: 1024px) {
     .content {
         width: 70%;
@@ -208,6 +214,30 @@ label{
     }
 }
 
+@media (max-width: 645px) {
+    .form h2 {
+        font-size: 4.5em;
+    }
+}
+
+@media (max-width: 581px) {
+    .form h2 {
+        font-size: 4em;
+    }
+}
+
+@media (max-width: 525px) {
+    .form h2 {
+        font-size: 3.5em;
+    }
+}
+
+@media (max-width: 460px) {
+    .form h2 {
+        font-size: 3em;
+    }
+}
+
 @media (max-width: 426px) {
     .content {
         width: 100%;
@@ -245,6 +275,12 @@ label{
 
     .loginBtn {
         font-size: 4em;
+    }
+}
+
+@media (max-width: 350px) {
+    .form h2 {
+        font-size: 4.5em;
     }
 }
 

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NextGen.Dal.Context;
 using System.Security.Claims;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace NextGen.Front.Controllers
 {
@@ -26,6 +28,8 @@ namespace NextGen.Front.Controllers
         [HttpPost]
         public async Task<ActionResult> Connect(string email, string password)
         {
+            // On hash le password pour le comparer à celui en base avec SHA256
+            password = HashPassword(password);
             var user = _context.Users.FirstOrDefault(u => u.Email.ToLower() == email.ToLower() && u.Password == password);
             if (user != null)
             {
@@ -61,6 +65,20 @@ namespace NextGen.Front.Controllers
         {
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Connect", "Login");
+        }
+
+        public static string HashPassword(string password)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
     }
 }
