@@ -185,7 +185,7 @@
                 // Stocker l'ID de l'actualité sélectionnée
                 currentActualiteId = this.id;
                 // Afficher le modal
-                modalDelete.css("display", "block");
+                modalDelete.css("display", "flex");
             });
         }
 
@@ -212,7 +212,7 @@
 
         // Affiche le modal quand l'image miniature est cliquée
         imgMiniature.on("click", function () {
-            modal.style.display = "block";
+            modal.style.display = "flex";
             imageAgrandie.src = this.src;
             videoAgrandie.style.display = "none";
             imageAgrandie.style.display = "block";

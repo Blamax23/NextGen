@@ -64,6 +64,10 @@
         justify-content: center;
     }
 
+    .home-presentation .color-last {
+        padding: .1em;
+    }
+
 .subtitle-zone {
     display: flex;
     justify-content: center;
@@ -106,7 +110,7 @@
 
 .background {
     height: 60vh;
-    aspect-ratio: .8;
+    aspect-ratio: .55;
     border-radius: 5%;
     border-bottom-left-radius: 50px;
     border-bottom-right-radius: 50px;
@@ -120,7 +124,6 @@
 .pictures {
     clear: both;
     width: 100%;
-    overflow: hidden;
     display: block;
 }
 
@@ -131,7 +134,7 @@
     .pictures div img {
         position: relative;
         width: 100%;
-        height: 40vh;
+        aspect-ratio: 1;
         object-fit: cover;
         object-position: top;
         left: 0;
@@ -159,16 +162,8 @@
     }
 }
 
-.col-md-6 img {
-    width: 100%;
-}
-
-.col-md-9 img {
-    width: 100%;
-}
-
 .apropos {
-    margin-top: 90vh;
+    margin-top: 70%;
     width: 100%;
 }
 
@@ -181,7 +176,7 @@
 
 .explication-zone {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
     height: 100%;
     width: 100%;
@@ -191,7 +186,7 @@
 
 .text-zone {
     height: 100%;
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -337,7 +332,7 @@
 /* Point clefs en grid d'une seule ligne avec les 4 éléments*/
 .point-clefs {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 10vh;
 }
@@ -346,7 +341,7 @@
 
 .valeur {
     background-color: rgb(32, 62, 112);
-    height: 40vh;
+    height: 70vh;
     position: relative;
     width: 100%;
 }
@@ -398,7 +393,7 @@
 .detail-zone {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     background-color: transparent;
@@ -415,6 +410,7 @@
     .detail-zone p {
         font-size: 1rem;
         line-height: 1.6;
+        height: 100%;
     }
 
 @media (max-width: 767.98px) {
@@ -427,7 +423,7 @@
     }
 }
 
-@media (min-width: 2100px) and (max-width: 2560px) {
+@media (min-width: 2100px) and (max-width: 2561px) {
     .home-presentation h1 {
         font-size: 10em;
     }
@@ -441,24 +437,27 @@
         }
 
         .subtitle-zone .color {
-            padding: 0;
             margin: 0;
             margin-top: -2vh;
         }
 
-    .apropos h2{
+    .home-presentation .color-last {
+        padding-right: 0.5em;
+    }
+
+    .apropos h2 {
         font-size: 3.5em;
     }
 
-    .text-zone{
+    .text-zone {
         font-size: 2em;
     }
 
-    .valeurs h2{
+    .valeurs h2 {
         font-size: 3.5em;
     }
 
-    .detail-zone h3{
+    .detail-zone h3 {
         font-size: 2.5em;
     }
 
@@ -467,38 +466,99 @@
     }
 }
 
-@media (max-width: 1440px){
+@media (min-width: 2100px) and (max-width: 2470px) {
+    .subtitle-zone {
+        font-size: 1.8em;
+    }
+
+    .detail-zone p{
+        font-size: 1.45em;
+    }
+}
+
+@media (min-width: 2100px) and (max-width: 2230px) {
+    .subtitle-zone {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 2100px) and (max-width: 2170px) {
+    .detail-zone p {
+        font-size: 1.4em;
+    }
+}
+
+@media (min-width: 1800px) and (max-width: 2100px) {
+    .detail-zone p {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1600px) and (max-width: 1800px) {
+    .detail-zone p {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 1600px) {
+    .detail-zone p {
+        font-size: .85em;
+    }
+}
+
+
+@media (max-width: 1440px) {
 
     .home-presentation h1 {
         font-size: 8em;
     }
 
     .subtitle-zone {
-        font-size: 1.5em;
+        font-size: 1.3em;
     }
 
         .subtitle-zone h2 {
-            padding: 0 .5vw;
+            padding: .1em;
         }
 
         .subtitle-zone .color {
-            padding: 0;
             margin: 0;
             margin-top: -2vh;
         }
 
-    .text-zone{
+    .home-presentation .color-last {
+        padding: 0 .25em 0 0;
+    }
+
+    .text-zone {
         font-size: 1.5em;
     }
 
-    .detail-zone h3{
-        font-size: 1.5em;
+    .detail-zone h3 {
+        font-size: 1.3em;
     }
 
     .detail-zone p {
-        font-size: 1.2em;
+        font-size: 1.1em;
+    }
+}
+
+@media (max-width: 1233px) {
+    .detail-zone p {
+        font-size: 1em;
+    }
+}
+
+
+
+@media (max-width: 1209px) {
+    .home-presentation h1 {
+        font-size: 7em;
     }
 
+    .subtitle-zone {
+        font-size: 1.1em;
+    }
 }
 
 @media (max-width: 1091px) {
@@ -507,7 +567,7 @@
     }
 
     .subtitle-zone {
-        font-size: 1.25em;
+        font-size: 1.1em;
     }
 
     .picture-zone video {
@@ -523,7 +583,21 @@
     }
 
     .detail-zone p {
-        font-size: 1.1em;
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 1045px) {
+    .home-presentation h1 {
+        font-size: 7em;
+    }
+
+    .subtitle-zone {
+        font-size: 1em;
+    }
+
+    .detail-zone p {
+        font-size: 0.95em;
     }
 }
 
@@ -536,16 +610,16 @@
         width: 105%;
     }
 
-    .home-presentation h1{
-        font-size: 10em;
-    }
+        .home-presentation h1 {
+            font-size: 9em;
+        }
 
     .background {
         height: 50vh;
     }
 
     .subtitle-zone {
-        font-size: 1.75em;
+        font-size: 1.5em;
     }
 
         .subtitle-zone h2 {
@@ -553,42 +627,72 @@
         }
 
         .subtitle-zone .color {
-            padding: 0;
             margin: 0;
             margin-top: -1.2vh;
         }
 
     .text-zone {
         height: 100%;
-        width: 50%;
+        width: 100%;
         font-size: 2em;
     }
 
     .point-clefs {
         grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
     }
 
     .valeur {
-        aspect-ratio: 1;
+        height: 60vh;
+        aspect-ratio: .8;
     }
 
     .detail-zone h3 {
-        font-size: 3.5em;
+        font-size: 3.25em;
         margin-bottom: 5vh;
     }
 
     .detail-zone p {
-        font-size: 2em;
+        font-size: 1.45em;
+    }
+}
+
+@media (max-width: 921px) {
+    .home-presentation h1 {
+        font-size: 9em;
+    }
+
+    .subtitle-zone {
+        font-size: 1.3em;
+    }
+
+    .detail-zone h3 {
+        font-size: 2.5em;
+        margin-bottom: 5vh;
+    }
+
+    .detail-zone p {
+        font-size: 1.4em;
+    }
+}
+
+@media (max-width: 897px) {
+    .home-presentation h1 {
+        font-size: 9em;
+    }
+
+    .subtitle-zone {
+        font-size: 1.2em;
     }
 }
 
 @media (max-width: 851px) {
     .home-presentation h1 {
-        font-size: 8em;
+        font-size: 9em;
     }
 
     .subtitle-zone {
-        font-size: 1.4em;
+        font-size: 1.2em;
     }
 
     .picture-zone video {
@@ -598,9 +702,15 @@
     .background {
         height: 50vh;
     }
+}
 
-    .detail-zone h3 {
-        font-size: 3em;
+@media (max-width: 785px) {
+    .home-presentation h1 {
+        font-size: 9em;
+    }
+
+    .subtitle-zone {
+        font-size: 1.1em;
     }
 }
 
@@ -624,7 +734,7 @@
     }
 
     .subtitle-zone {
-        font-size: 1em;
+        font-size: 0.8em;
     }
 
         .subtitle-zone h2 {
@@ -632,13 +742,12 @@
         }
 
         .subtitle-zone .color {
-            padding: 0;
             margin: 0;
             margin-top: -1.2vh;
         }
 
-    .apropos{
-        margin-top: 65vh;
+    .apropos {
+        margin-top: 45%;
     }
 
     .explication-zone {
@@ -683,12 +792,12 @@
     }
 
     .detail-zone h3 {
-        font-size: 3.5em;
+        font-size: 2.75em;
         margin-bottom: 5vh;
     }
 
     .detail-zone p {
-        font-size: 2em;
+        font-size: 1.5em;
     }
 }
 
@@ -709,8 +818,24 @@
         height: 35vh;
     }
 
+    .valeur {
+        height: 65vh;
+    }
+
     .detail-zone h3 {
-        font-size: 3em;
+        font-size: 2.5em;
+        margin-bottom: 5vh;
+    }
+
+    .detail-zone p {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 660px) {
+
+    .subtitle-zone {
+        font-size: .7em;
     }
 }
 
@@ -742,7 +867,7 @@
         }
 
     .subtitle-zone {
-        font-size: 1.4em;
+        font-size: 1em;
     }
 
         .subtitle-zone h2 {
@@ -750,7 +875,6 @@
         }
 
         .subtitle-zone .color {
-            padding: 0;
             margin: 0;
             margin-top: -1.2vh;
         }
@@ -764,25 +888,56 @@
     }
 
     .apropos {
-        margin-top: 145vh;
+        margin-top: 125%;
+    }
+}
+
+@media (max-width: 601px) {
+    .home-presentation h1 {
+        font-size: 6em;
+    }
+
+    .subtitle-zone {
+        font-size: 0.9em;
+    }
+
+    .apropos {
+        margin-top: 120%;
     }
 }
 
 @media (max-width: 581px) {
 
     .detail-zone h3 {
-        font-size: 2.7em;
+        font-size: 2.25em;
+    }
+
+    .detail-zone p {
+        font-size: 1.45em;
     }
 }
 
 @media (max-width: 543px) {
+    .container {
+        width: 90vw;
+    }
 
     .subtitle-zone {
-        font-size: 1.2em;
+        font-size: .8em;
+    }
+
+    .valeur {
+        width: 45vw;
     }
 
     .detail-zone h3 {
         font-size: 2.2em;
+    }
+}
+
+@media (max-width: 476px) {
+    .detail-zone p {
+        font-size: 1.4em;
     }
 }
 
@@ -793,7 +948,28 @@
     }
 
     .subtitle-zone {
-        font-size: 1.1em;
+        font-size: .8em;
+    }
+
+    .apropos {
+        margin-top: 115%;
+    }
+
+    .point-clefs {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .valeur {
+        aspect-ratio: unset;
+        width: 100%;
+    }
+
+    .detail-zone h3 {
+        font-size: 3em;
+    }
+
+    .detail-zone p {
+        font-size: 1.75em;
     }
 }
 
@@ -825,7 +1001,7 @@
         }
 
     .subtitle-zone {
-        font-size: 1.5em;
+        font-size: 1.05em;
     }
 
         .subtitle-zone h2 {
@@ -833,7 +1009,6 @@
         }
 
         .subtitle-zone .color {
-            padding: 0;
             margin: 0;
             margin-top: -1.2vh;
         }
@@ -878,7 +1053,7 @@
     }
 
     .apropos {
-        margin-top: 145vh;
+        margin-top: 110%;
     }
 
         .apropos h2 {
@@ -907,11 +1082,11 @@
     }
 
     .detail-zone h3 {
-        font-size: 5em;
+        font-size: 4em;
     }
 
     .detail-zone p {
-        font-size: 3em;
+        font-size: 2.5em;
     }
 
     .recette-zone {
@@ -933,7 +1108,7 @@
     }
 
     .apropos {
-        margin-top: 140vh;
+        margin-top: 105%;
     }
 
     .text-zone p {
@@ -945,11 +1120,11 @@
     }
 
     .detail-zone h3 {
-        font-size: 5em;
+        font-size: 4em;
     }
 
     .detail-zone p {
-        font-size: 3em;
+        font-size: 2.1em;
     }
 }
 
@@ -959,8 +1134,18 @@
     }
 }
 
+@media (max-width: 345px) {
+    .detail-zone h3 {
+        font-size: 4em;
+    }
+
+    .detail-zone p {
+        font-size: 2em;
+    }
+}
+
 @media (max-width: 321px) {
-    .logo{
+    .logo {
         display: none;
     }
 
@@ -976,7 +1161,19 @@
         font-size: 3em;
     }
 
+    .valeur {
+        height: 70vh;
+    }
+
     .detail-zone h3 {
-        font-size: 4em;
+        font-size: 3.75em;
+    }
+
+    .detail-zone p {
+        font-size: 2.5em;
+    }
+
+    .apropos {
+        margin-top: 95%;
     }
 }

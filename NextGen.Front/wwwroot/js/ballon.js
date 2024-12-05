@@ -46,7 +46,7 @@ controls.minPolarAngle = -Infinity;
 controls.maxPolarAngle = Infinity;
 
 // Position initiale de la caméra
-camera.position.set(0, 2, 5);
+camera.position.set(0, 0, 5);
 controls.update();
 
 // Créer un groupe pour le modèle

@@ -6,7 +6,7 @@
     ViewData["Title"] = "Foire aux Questions";
 }
 
-<link rel="stylesheet" href="~/css/Question.css" />
+<link rel="stylesheet" href="~/css/Question.css" asp-append-version="true" />
 
 <div class="content">
     <h2>Foire Aux Questions</h2>
@@ -38,23 +38,68 @@
                 </form>
             </div>
         }
-        @for (var i =0; i < Model.Count(); i++)
+        @for (var i = 0; i < Model.Count(); i++)
         {
+            List<string> paragraphesReponses = Model[i].Reponse.Split("<br />").ToList();
             <div class="question shadow-lg">
                 <div class="question-zone" id="question-@i">
                     <h3>@Model[i].Intitule</h3>
                     <i class="bi bi-chevron-right"></i>
                 </div>
                 <div class="reponse-zone" id="reponse-@i" style="display: none;">
-                    <p style="margin: 0;">@Model[i].Reponse</p>
+                    @foreach(var para in paragraphesReponses)
+                    {
+                        <p style="margin: 0;">@para</p><br />
+                    }
+                    <div class="delete-zone">
+                        <button class="btn cancel-btn btn-danger delete-btn" data-id="@Model[i].Id">Supprimer</button>
+                    </div>
                 </div>
             </div>
         }
+    </div>
+
+    <div id="modalDelete" class="modal">
+        <form method="post" asp-controller="Question" asp-action="DeleteQuestion" class="content-modal">
+            <i class="bi bi-exclamation-triangle-fill warning-icon"></i>
+            <input type="hidden" name="id" id="questionIdToDelete" />
+            <p class="warning-text">Êtes-vous sûr de vouloir supprimer cette question ?</p>
+            <div class="btns-delete">
+                <a class="btn btn-danger" onclick="ToggleModal()">Annuler</a>
+                <button type="submit" class="btn btn-secondary">Supprimer</button>
+            </div>
+        </form>
     </div>
 </div>
 
 @section Scripts {
     <script type="text/javascript">
+        const deleteBtns = $(".delete-btn");
+        const modalDelete = $(".modal");
+        const btnsDelete = modalDelete.find(".btns-delete");
+        const closeDeleteBtn = btnsDelete.find(".close");
+        const deleteActu = btnsDelete.find(".delete");
+
+        // Variable pour stocker l'ID de l'actualité courante
+        let currentActualiteId = null;
+
+        // Attacher les gestionnaires d'événements aux boutons de suppression
+        for (let i = 0; i < deleteBtns.length; i++) {
+            deleteBtns[i].addEventListener("click", function (event) {
+                const questionIdInput = document.getElementById("questionIdToDelete");
+                currentQuestionId = this.getAttribute("data-id");
+                questionIdInput.value = currentQuestionId;
+                // Stocker l'ID de l'actualité sélectionnée
+                currentActualiteId = this.id;
+                // Afficher le modal
+                modalDelete.css("display", "flex");
+            });
+        }
+
+        function ToggleModal() {
+            modalDelete.css("display", "none");
+        }
+
         function toggleForm() {
             var btn = document.getElementById("btnAddQuestion");
             var form = document.getElementById("formAddQuestion");

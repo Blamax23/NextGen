@@ -9,5 +9,7 @@ namespace NextGen.Dal.Interfaces
         Question GetQuestion(int id);
 
         List<Question> GetAllQuestions();
+
+        void DeleteQuestion(int id);
     }
 }

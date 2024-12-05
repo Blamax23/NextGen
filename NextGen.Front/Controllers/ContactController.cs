@@ -47,6 +47,8 @@ namespace NextGen.Front.Controllers
                 string toMail = _configuration.GetSection("EmailSettings")["EmailReceiver"];
                 string smtpServer = _configuration.GetSection("EmailSettings")["Host"];
 
+                Contenu = Contenu.Replace("\n", "<br>");
+
                 MailMessage mail = new MailMessage();
                 mail.From = new MailAddress(fromMail);
                 mail.To.Add(new MailAddress(toMail));

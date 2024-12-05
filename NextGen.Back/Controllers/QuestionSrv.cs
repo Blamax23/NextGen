@@ -40,5 +40,13 @@ namespace NextGen.Back.Services
 
             return questions;
         }
+
+        public void DeleteQuestion(int id)
+        {
+            // Code pour supprimer un Actualite
+            var quest = _context.Questions.Find(id);
+            _context.Questions.Remove(quest);
+            _context.SaveChanges();
+        }
     }
 }
